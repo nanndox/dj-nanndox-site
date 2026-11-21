@@ -909,6 +909,18 @@ input:focus, select:focus {
   color: var(--neon-cyan);
 }
 
+.discreet-epk-link {
+  color: #52525e !important;
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  transition: color 0.25s ease;
+}
+
+.discreet-epk-link:hover {
+  color: var(--neon-cyan) !important;
+}
+
 .admin-trigger {
   background: transparent;
   border: 1px solid #2c2c36;
