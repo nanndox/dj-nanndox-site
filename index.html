@@ -25,29 +25,48 @@
       </a>
 
       <nav class="nav-menu" id="navMenu">
-        <a href="#home" class="nav-link active">HOME</a>
+        <a href="#home" class="nav-link active" data-i18n="nav_home">HOME</a>
         <a href="#soundcloud" class="nav-link">SOUNDCLOUD</a>
         <a href="#youtube" class="nav-link">YOUTUBE</a>
         <a href="#instagram" class="nav-link">INSTAGRAM</a>
-        <a href="#shows" class="nav-link">BOOKINGS 2027</a>
+        <a href="#shows" class="nav-link" data-i18n="nav_bookings">BOOKINGS 2027</a>
         <a href="#bio" class="nav-link">BIO</a>
-        <a href="#contact" class="nav-link">CONTACT</a>
+        <a href="#contact" class="nav-link" data-i18n="nav_contact">CONTACTO</a>
+
+        <div class="lang-switcher mobile-langs" aria-label="Idioma">
+          <button class="lang-btn active" data-lang="pt">PT</button>
+          <button class="lang-btn" data-lang="fr">FR</button>
+          <button class="lang-btn" data-lang="en">EN</button>
+          <button class="lang-btn" data-lang="es">ES</button>
+        </div>
       </nav>
 
-      <div class="nav-socials">
-        <a href="https://soundcloud.com/nanndox" target="_blank" rel="noopener" title="SoundCloud"><i class="fa-brands fa-soundcloud"></i></a>
-        <a href="https://www.youtube.com/@djnanndox" target="_blank" rel="noopener" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
-        <a href="https://instagram.com/djnanndox" target="_blank" rel="noopener" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
-        <a href="https://wa.me/351964505531" target="_blank" rel="noopener" title="WhatsApp Booking"><i class="fa-brands fa-whatsapp"></i></a>
-        <button class="mobile-toggle" id="mobileToggle" aria-label="Abrir Menu">
-          <i class="fa-solid fa-bars"></i>
-        </button>
+      <div class="nav-right">
+        <div class="lang-switcher desktop-langs" aria-label="Idioma">
+          <button class="lang-btn active" data-lang="pt">PT</button>
+          <button class="lang-btn" data-lang="fr">FR</button>
+          <button class="lang-btn" data-lang="en">EN</button>
+          <button class="lang-btn" data-lang="es">ES</button>
+        </div>
+
+        <div class="nav-socials">
+          <a href="https://soundcloud.com/nanndox" target="_blank" rel="noopener" title="SoundCloud"><i class="fa-brands fa-soundcloud"></i></a>
+          <a href="https://www.youtube.com/@djnanndox" target="_blank" rel="noopener" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
+          <a href="https://instagram.com/djnanndox" target="_blank" rel="noopener" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://wa.me/351964505531" target="_blank" rel="noopener" title="WhatsApp Booking"><i class="fa-brands fa-whatsapp"></i></a>
+          <button class="mobile-toggle" id="mobileToggle" aria-label="Abrir Menu">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+        </div>
       </div>
     </div>
   </header>
 
   <!-- HERO PRINCIPAL -->
   <section class="hero" id="home">
+    <div class="neon-orb orb-cyan"></div>
+    <div class="neon-orb orb-violet"></div>
+
     <div class="hero-content">
       <p class="hero-tag">TECH HOUSE • AFRO HOUSE • AFRO-LATIN • EDM</p>
 
@@ -60,10 +79,10 @@
         </div>
       </div>
 
-      <p class="hero-subtitle">EXPERIÊNCIA DE PISTA, ENERGIA PURA E PRODUÇÕES EXCLUSIVAS PARA CLUBES E EVENTOS.</p>
+      <p class="hero-subtitle" data-i18n="hero_sub">ENERGIA DE PISTA &amp; SONS EXCLUSIVOS PARA CLUBES E EVENTOS.</p>
       <div class="hero-actions">
-        <a href="#soundcloud" class="btn btn-primary">OUVIR NO SOUNDCLOUD</a>
-        <a href="#contact" class="btn btn-outline">AGENDAMENTO 2027</a>
+        <a href="#soundcloud" class="btn btn-primary" data-i18n="hero_btn_listen">OUVIR NO SOUNDCLOUD</a>
+        <a href="#contact" class="btn btn-outline" data-i18n="hero_btn_book">AGENDAMENTO 2027</a>
       </div>
     </div>
   </section>
@@ -71,8 +90,8 @@
   <!-- BARRA ANIMADA -->
   <div class="ticker-wrap">
     <div class="ticker">
-      <span>SOUNDCLOUD SETS • YOUTUBE LIVE SESSIONS • INSTAGRAM @DJNANNDOX • AGENDAMENTO ABERTO 2027 • TECH HOUSE &amp; AFRO HOUSE • </span>
-      <span>SOUNDCLOUD SETS • YOUTUBE LIVE SESSIONS • INSTAGRAM @DJNANNDOX • AGENDAMENTO ABERTO 2027 • TECH HOUSE &amp; AFRO HOUSE • </span>
+      <span data-i18n="ticker_text">SOUNDCLOUD SETS • YOUTUBE LIVE SESSIONS • INSTAGRAM @DJNANNDOX • AGENDAMENTO ABERTO 2027 • TECH HOUSE &amp; AFRO HOUSE • </span>
+      <span data-i18n="ticker_text">SOUNDCLOUD SETS • YOUTUBE LIVE SESSIONS • INSTAGRAM @DJNANNDOX • AGENDAMENTO ABERTO 2027 • TECH HOUSE &amp; AFRO HOUSE • </span>
     </div>
   </div>
 
@@ -81,11 +100,11 @@
     <div class="container">
       <div class="section-header">
         <div>
-          <span class="eyebrow">STREAMING &amp; FREE DOWNLOADS OFICIAIS</span>
+          <span class="eyebrow" data-i18n="sc_eyebrow">STREAMING &amp; FREE DOWNLOADS OFICIAIS</span>
           <h2>SOUNDCLOUD SETS &amp; MIXES</h2>
         </div>
         <a href="https://soundcloud.com/nanndox" target="_blank" rel="noopener" class="btn btn-sm btn-dark">
-          <i class="fa-brands fa-soundcloud"></i> SEGUIR NO SOUNDCLOUD
+          <i class="fa-brands fa-soundcloud"></i> <span data-i18n="sc_follow">SEGUIR NO SOUNDCLOUD</span>
         </a>
       </div>
 
@@ -102,8 +121,8 @@
         </div>
 
         <div class="sc-side-list">
-          <h3>DESTAQUES &amp; LINKS SOUNDCLOUD</h3>
-          <p class="sc-desc">Ouve os meus sets gravados ao vivo, remixes e sessões especiais diretamente no SoundCloud.</p>
+          <h3 data-i18n="sc_side_title">DESTAQUES &amp; LINKS SOUNDCLOUD</h3>
+          <p class="sc-desc" data-i18n="sc_side_desc">Ouve os meus sets gravados ao vivo, remixes e sessões especiais diretamente no SoundCloud.</p>
           <div id="scLinksContainer" class="sc-cards"></div>
         </div>
       </div>
@@ -115,27 +134,27 @@
     <div class="container">
       <div class="section-header">
         <div>
-          <span class="eyebrow">VÍDEOS, LIVE SETS &amp; SESSIONS</span>
+          <span class="eyebrow" data-i18n="yt_eyebrow">VÍDEOS, LIVE SETS &amp; SESSIONS</span>
           <h2>YOUTUBE OFFICIAL CHANNEL</h2>
         </div>
         <a href="https://www.youtube.com/@djnanndox" target="_blank" rel="noopener" class="btn btn-sm btn-youtube">
-          <i class="fa-brands fa-youtube"></i> SUBSCREVER @DJNANNDOX
+          <i class="fa-brands fa-youtube"></i> <span data-i18n="yt_sub">SUBSCREVER @DJNANNDOX</span>
         </a>
       </div>
 
       <div class="yt-layout">
-        <div class="yt-banner-card">
-          <div class="yt-badge"><i class="fa-brands fa-youtube"></i> CANAL OFICIAL</div>
+        <div class="yt-banner-card neon-card">
+          <div class="yt-badge"><i class="fa-brands fa-youtube"></i> <span data-i18n="yt_badge">CANAL OFICIAL</span></div>
           <h3>DJ NANNDOX ON YOUTUBE</h3>
-          <p>Acompanha os meus live sets em vídeo, gravações de pista, bastidores e sessões exclusivas diretamente no canal oficial.</p>
+          <p data-i18n="yt_card_desc">Acompanha os meus live sets em vídeo, gravações de pista, bastidores e sessões exclusivas diretamente no canal oficial.</p>
           <a href="https://www.youtube.com/@djnanndox" target="_blank" rel="noopener" class="btn btn-primary">
-            ABRIR CANAL NO YOUTUBE <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            <span data-i18n="yt_open">ABRIR CANAL NO YOUTUBE</span> <i class="fa-solid fa-arrow-up-right-from-square"></i>
           </a>
         </div>
 
         <div class="yt-side-list">
-          <h3>VÍDEOS &amp; SETS EM DESTAQUE</h3>
-          <p class="yt-desc">Clica abaixo para assistir às sessões publicadas no YouTube.</p>
+          <h3 data-i18n="yt_side_title">VÍDEOS &amp; SETS EM DESTAQUE</h3>
+          <p class="yt-desc" data-i18n="yt_side_desc">Clica abaixo para assistir às sessões publicadas no YouTube.</p>
           <div id="ytLinksContainer" class="yt-cards"></div>
         </div>
       </div>
@@ -147,27 +166,27 @@
     <div class="container">
       <div class="section-header">
         <div>
-          <span class="eyebrow">SOCIAL, REELS &amp; BASTIDORES</span>
+          <span class="eyebrow" data-i18n="ig_eyebrow">SOCIAL, REELS &amp; BASTIDORES</span>
           <h2>INSTAGRAM @DJNANNDOX</h2>
         </div>
         <a href="https://instagram.com/djnanndox" target="_blank" rel="noopener" class="btn btn-sm btn-instagram">
-          <i class="fa-brands fa-instagram"></i> SEGUIR NO INSTAGRAM
+          <i class="fa-brands fa-instagram"></i> <span data-i18n="ig_follow">SEGUIR NO INSTAGRAM</span>
         </a>
       </div>
 
       <div class="yt-layout">
         <div class="ig-banner-card">
-          <div class="ig-badge"><i class="fa-brands fa-instagram"></i> PERFIL OFICIAL</div>
-          <h3>ACOMPANHA AS ATUAÇÕES AO VIVO</h3>
-          <p>Vídeos curtos de pista, novidades de agenda, prévias de remixes e momentos das noites por Portugal e Europa.</p>
+          <div class="ig-badge"><i class="fa-brands fa-instagram"></i> <span data-i18n="ig_badge">PERFIL OFICIAL</span></div>
+          <h3 data-i18n="ig_card_title">ACOMPANHA AS ATUAÇÕES AO VIVO</h3>
+          <p data-i18n="ig_card_desc">Vídeos curtos de pista, novidades de agenda, prévias de remixes e momentos das noites por Portugal e Europa.</p>
           <a href="https://instagram.com/djnanndox" target="_blank" rel="noopener" class="btn btn-dark">
-            ABRIR INSTAGRAM @DJNANNDOX <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            <span data-i18n="ig_open">ABRIR INSTAGRAM @DJNANNDOX</span> <i class="fa-solid fa-arrow-up-right-from-square"></i>
           </a>
         </div>
 
         <div class="sc-side-list">
-          <h3>DESTAQUES &amp; REELS</h3>
-          <p class="sc-desc">Links diretos para atuações, flyers e publicações em destaque no Instagram.</p>
+          <h3 data-i18n="ig_side_title">DESTAQUES &amp; REELS</h3>
+          <p class="sc-desc" data-i18n="ig_side_desc">Links diretos para atuações, flyers e publicações em destaque no Instagram.</p>
           <div id="igLinksContainer" class="sc-cards"></div>
         </div>
       </div>
@@ -179,20 +198,20 @@
     <div class="container">
       <div class="section-header">
         <div>
-          <span class="eyebrow">TOUR &amp; EVENTOS</span>
-          <h2>AGENDAMENTO PARA 2027</h2>
+          <span class="eyebrow" data-i18n="shows_eyebrow">TOUR &amp; EVENTOS</span>
+          <h2 data-i18n="shows_title">AGENDAMENTO PARA 2027</h2>
         </div>
-        <a href="#contact" class="btn btn-primary">RESERVAR DATA 2027</a>
+        <a href="#contact" class="btn btn-primary" data-i18n="shows_btn">RESERVAR DATA 2027</a>
       </div>
 
       <div class="shows-list" id="showsList"></div>
     </div>
   </section>
 
-  <!-- BIO & FOTO OFICIAL (SEM ETIQUETA BRASIL • PORTUGAL E SEM PARÁGRAFO FINAL) -->
+  <!-- BIO & FOTO OFICIAL -->
   <section class="section section-bio" id="bio">
     <div class="container bio-grid">
-      <div class="bio-photo-frame">
+      <div class="bio-photo-frame neon-photo-border">
         <img src="foto-nanndox.jpeg" alt="DJ Nanndox - Nando Dias" onerror="this.parentElement.classList.add('photo-missing');" />
         <div class="photo-placeholder">
           <i class="fa-solid fa-headphones"></i>
@@ -201,30 +220,30 @@
       </div>
 
       <div class="bio-content">
-        <span class="eyebrow">SOBRE O ARTISTA</span>
+        <span class="eyebrow" data-i18n="bio_eyebrow">SOBRE O ARTISTA</span>
         <h2>DJ NANNDOX</h2>
-        <p class="bio-lead">
+        <p class="bio-lead" data-i18n="bio_p1">
           <strong>DJ NANNDOX (Nando Dias)</strong> é um DJ e produtor Brasileiro/Português movido por uma paixão pura e genuína pela música e pela arte de misturar.
         </p>
-        <p>
+        <p data-i18n="bio_p2">
           O que começou pelo simples encanto de juntar batidas e sentir a reação das pessoas transformou-se numa caminhada natural pelas cabines, marcada pela energia contagiante e pela fusão leve e envolvente entre <strong>Tech House, Afro House, Afro-Latin e Dance/EDM</strong>.
         </p>
-        <p>
+        <p data-i18n="bio_p3">
           Ao longo do seu percurso, levou a sua identidade musical aos principais clubes da noite de Lisboa — com passagens marcantes por espaços como <strong>Urban Beach, Havana Docas, Hawaii Docas, Álcool Puro e TOPFLOOR Club</strong> — e cruzou fronteiras até à Suíça, onde também deixou a sua marca na pista do <strong>Midnight Club</strong> e no <strong>Carnaval de Lausanne</strong>, entre outras casas.
         </p>
 
         <div class="bio-stats">
           <div>
             <strong>TECH &amp; AFRO</strong>
-            <span>Assinatura Sonora</span>
+            <span data-i18n="stat_1">Assinatura Sonora</span>
           </div>
           <div>
             <strong>PT • CH • BR</strong>
-            <span>Conexão Internacional</span>
+            <span data-i18n="stat_2">Conexão Internacional</span>
           </div>
           <div>
             <strong>OPEN FORMAT</strong>
-            <span>Clubes &amp; Eventos Privados</span>
+            <span data-i18n="stat_3">Clubes &amp; Eventos Privados</span>
           </div>
         </div>
       </div>
@@ -236,64 +255,64 @@
     <div class="container">
       <div class="section-header">
         <div>
-          <span class="eyebrow">VAMOS TRABALHAR JUNTOS</span>
-          <h2>BOOKINGS 2027 &amp; CONTACTO DIRETO</h2>
+          <span class="eyebrow" data-i18n="book_eyebrow">VAMOS TRABALHAR JUNTOS</span>
+          <h2 data-i18n="book_title">BOOKINGS 2027 &amp; CONTACTO DIRETO</h2>
         </div>
       </div>
 
       <div class="booking-grid">
         <div class="booking-packs">
-          <h3>FORMATOS &amp; SERVIÇOS DISPONÍVEIS</h3>
+          <h3 data-i18n="packs_heading">FORMATOS &amp; SERVIÇOS DISPONÍVEIS</h3>
 
-          <div class="pack-card">
+          <div class="pack-card neon-card">
             <div class="pack-top">
-              <strong>CLUB / BAR / SUNSET SET</strong>
-              <span class="pack-price">SOB CONSULTA</span>
+              <strong data-i18n="p1_title">CLUB / BAR / SUNSET SET</strong>
+              <span class="pack-price" data-i18n="on_request">SOB CONSULTA</span>
             </div>
-            <p>Atuação personalizada para clubes, bares e sunsets (Tech House / Afro House / Comercial) com opção de flyer promocional incluído.</p>
+            <p data-i18n="p1_desc">Atuação personalizada para clubes, bares e sunsets (Tech House / Afro House / Comercial) com opção de flyer promocional incluído.</p>
           </div>
 
-          <div class="pack-card">
+          <div class="pack-card neon-card">
             <div class="pack-top">
-              <strong>CASAMENTOS &amp; BATIZADOS</strong>
-              <span class="pack-price">SOB CONSULTA</span>
+              <strong data-i18n="p2_title">CASAMENTOS &amp; BATIZADOS</strong>
+              <span class="pack-price" data-i18n="on_request">SOB CONSULTA</span>
             </div>
-            <p>Acompanhamento musical completo para cerimónia, copo-de-água, pista de dança e momentos especiais adaptados aos noivos e convidados.</p>
+            <p data-i18n="p2_desc">Acompanhamento musical completo para cerimónia, copo-de-água, pista de dança e momentos especiais adaptados aos noivos e convidados.</p>
           </div>
 
-          <div class="pack-card">
+          <div class="pack-card neon-card">
             <div class="pack-top">
-              <strong>EVENTOS PRIVADOS &amp; ANIVERSÁRIOS</strong>
-              <span class="pack-price">SOB CONSULTA</span>
+              <strong data-i18n="p3_title">EVENTOS PRIVADOS &amp; ANIVERSÁRIOS</strong>
+              <span class="pack-price" data-i18n="on_request">SOB CONSULTA</span>
             </div>
-            <p>Animação musical à medida para festas privadas, eventos corporativos e celebrações exclusivas.</p>
+            <p data-i18n="p3_desc">Animação musical à medida para festas privadas, eventos corporativos e celebrações exclusivas.</p>
           </div>
 
-          <div class="pack-card">
+          <div class="pack-card neon-card">
             <div class="pack-top">
-              <strong>ALUGUER DE SOM &amp; ILUMINAÇÃO PARA O EVENTO</strong>
-              <span class="pack-price">SOB CONSULTA</span>
+              <strong data-i18n="p4_title">ALUGUER DE SOM &amp; ILUMINAÇÃO PARA O EVENTO</strong>
+              <span class="pack-price" data-i18n="on_request">SOB CONSULTA</span>
             </div>
-            <p>Opções flexíveis de aluguer de sistema de som profissional, cabine DJ e iluminação cénica ajustadas à dimensão e ao espaço do evento escolhido.</p>
+            <p data-i18n="p4_desc">Opções flexíveis de aluguer de sistema de som profissional, cabine DJ e iluminação cénica ajustadas à dimensão e ao espaço do evento escolhido.</p>
           </div>
         </div>
 
-        <div class="booking-form-box">
-          <h3>PEDIDO DE ORÇAMENTO &amp; DATA (2027)</h3>
-          <p>Preenche abaixo para enviar os detalhes do teu evento diretamente para o meu WhatsApp.</p>
+        <div class="booking-form-box neon-card">
+          <h3 data-i18n="form_heading">PEDIDO DE ORÇAMENTO &amp; DATA (2027)</h3>
+          <p data-i18n="form_sub">Preenche abaixo para enviar os detalhes do teu evento diretamente para o meu WhatsApp.</p>
           <form id="bookingForm">
-            <input type="text" id="clientName" placeholder="O teu nome / Nome do Clube ou Evento" required />
-            <input type="text" id="eventLocation" placeholder="Cidade / Local do Evento" required />
+            <input type="text" id="clientName" data-i18n-placeholder="ph_name" placeholder="O teu nome / Nome do Clube ou Evento" required />
+            <input type="text" id="eventLocation" data-i18n-placeholder="ph_loc" placeholder="Cidade / Local do Evento" required />
             <input type="date" id="eventDate" required />
             <select id="eventPack">
-              <option value="Club / Bar / Sunset Set (Sob Consulta)">Club / Bar / Sunset Set (Sob Consulta)</option>
-              <option value="Casamento / Batizado (Sob Consulta)">Casamento / Batizado (Sob Consulta)</option>
-              <option value="Evento Privado / Aniversário (Sob Consulta)">Evento Privado / Aniversário (Sob Consulta)</option>
-              <option value="DJ + Aluguer de Som e Iluminação (Sob Consulta)">DJ + Aluguer de Som e Iluminação (Sob Consulta)</option>
-              <option value="Apenas Aluguer de Som para Evento (Sob Consulta)">Apenas Aluguer de Som para Evento (Sob Consulta)</option>
+              <option value="Club / Bar / Sunset Set" data-i18n="opt_1">Club / Bar / Sunset Set (Sob Consulta)</option>
+              <option value="Casamento / Batizado" data-i18n="opt_2">Casamento / Batizado (Sob Consulta)</option>
+              <option value="Evento Privado / Aniversário" data-i18n="opt_3">Evento Privado / Aniversário (Sob Consulta)</option>
+              <option value="DJ + Aluguer de Som e Iluminação" data-i18n="opt_4">DJ + Aluguer de Som e Iluminação (Sob Consulta)</option>
+              <option value="Apenas Aluguer de Som para Evento" data-i18n="opt_5">Apenas Aluguer de Som para Evento (Sob Consulta)</option>
             </select>
             <button type="submit" class="btn btn-primary btn-full">
-              <i class="fa-brands fa-whatsapp"></i> PEDIR ORÇAMENTO NO WHATSAPP
+              <i class="fa-brands fa-whatsapp"></i> <span data-i18n="form_btn">PEDIR ORÇAMENTO NO WHATSAPP</span>
             </button>
           </form>
 
@@ -309,7 +328,14 @@
   <!-- RODAPÉ -->
   <footer class="footer">
     <div class="container footer-content">
-      <p>© 2026–2027 DJ NANNDOX (Nando Dias). Todos os direitos reservados.</p>
+      <div class="footer-copy">
+        <p>© 2026–2027 DJ NANNDOX (Nando Dias). <span data-i18n="footer_rights">Todos os direitos reservados.</span></p>
+        <p class="agency-credit">
+          <span data-i18n="footer_dev">Site desenvolvido pela</span>
+          <a href="https://vectra8.tech" target="_blank" rel="noopener" class="vectra-badge">VECTRA8 Digital Agency Online</a>
+        </p>
+      </div>
+
       <div class="footer-links">
         <a href="https://soundcloud.com/nanndox" target="_blank" rel="noopener">SoundCloud</a>
         <a href="https://www.youtube.com/@djnanndox" target="_blank" rel="noopener">YouTube</a>
