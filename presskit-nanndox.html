@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PRESS KIT 2027 — DJ NANNDOX</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <style>
+    :root {
+      --bg: #07070a;
+      --card: #111117;
+      --cyan: #00f0ff;
+      --violet: #a855f7;
+      --gold: #c8a97e;
+      --white: #ffffff;
+      --muted: #a6a6b2;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #030305;
+      color: var(--white);
+      font-family: 'Inter', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 24px 12px;
+    }
+
+    .print-bar {
+      margin-bottom: 18px;
+      display: flex;
+      gap: 12px;
+    }
+
+    .print-btn {
+      background: linear-gradient(135deg, var(--cyan), #3b82f6);
+      color: #050507;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 999px;
+      font-weight: 800;
+      font-size: 0.82rem;
+      letter-spacing: 0.1em;
+      cursor: pointer;
+      box-shadow: 0 0 20px rgba(0, 240, 255, 0.45);
+    }
+
+    /* FOLHA A4 / FLYER VERTICAL */
+    .epk-sheet {
+      width: 100%;
+      max-width: 820px;
+      background: radial-gradient(circle at 85% 12%, rgba(0, 240, 255, 0.14), transparent 40%),
+                  radial-gradient(circle at 12% 85%, rgba(168, 85, 247, 0.16), transparent 45%),
+                  var(--bg);
+      border: 1.5px solid rgba(0, 240, 255, 0.35);
+      border-radius: 20px;
+      padding: 36px 40px;
+      box-shadow: 0 25px 70px rgba(0, 0, 0, 0.85), 0 0 35px rgba(0, 240, 255, 0.12);
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* TOPO */
+    .epk-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      margin-bottom: 26px;
+    }
+
+    .epk-logo {
+      max-width: 240px;
+      height: auto;
+      border-radius: 8px;
+      border: 1px solid rgba(0, 240, 255, 0.25);
+    }
+
+    .epk-title-box {
+      text-align: right;
+    }
+
+    .badge-2027 {
+      display: inline-block;
+      background: rgba(0, 240, 255, 0.12);
+      border: 1px solid var(--cyan);
+      color: var(--cyan);
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.18em;
+      padding: 5px 14px;
+      border-radius: 999px;
+      margin-bottom: 8px;
+    }
+
+    .epk-title-box h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.85rem;
+      letter-spacing: -0.01em;
+    }
+
+    .epk-genres {
+      font-size: 0.76rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      color: var(--gold);
+      margin-top: 4px;
+    }
+
+    /* PERFIL & BIO */
+    .epk-profile {
+      display: grid;
+      grid-template-columns: 230px 1fr;
+      gap: 28px;
+      align-items: center;
+      margin-bottom: 28px;
+    }
+
+    .epk-photo {
+      width: 100%;
+      height: 270px;
+      object-fit: cover;
+      border-radius: 14px;
+      border: 1.5px solid rgba(168, 85, 247, 0.5);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
+    }
+
+    .epk-bio h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.15rem;
+      color: var(--cyan);
+      letter-spacing: 0.12em;
+      margin-bottom: 10px;
+    }
+
+    .epk-bio p {
+      font-size: 0.9rem;
+      line-height: 1.55;
+      color: #d8d8e0;
+      margin-bottom: 12px;
+    }
+
+    .venues-strip {
+      background: rgba(255, 255, 255, 0.04);
+      border-left: 3px solid var(--gold);
+      padding: 10px 14px;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      color: #eaeaf0;
+    }
+
+    .venues-strip strong {
+      color: var(--gold);
+    }
+
+    /* TABELA DE PREÇOS */
+    .pricing-section h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.15rem;
+      letter-spacing: 0.14em;
+      color: var(--white);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .pricing-section h2 span {
+      color: var(--cyan);
+    }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+      margin-bottom: 26px;
+    }
+
+    .price-card {
+      background: var(--card);
+      border: 1px solid rgba(0, 240, 255, 0.24);
+      border-radius: 14px;
+      padding: 18px 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .price-card.featured {
+      border-color: var(--cyan);
+      background: linear-gradient(145deg, #141824 0%, #0f1016 100%);
+      box-shadow: 0 0 22px rgba(0, 240, 255, 0.12);
+    }
+
+    .price-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+
+    .price-top h3 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.98rem;
+      color: var(--white);
+    }
+
+    .price-tag {
+      background: var(--cyan);
+      color: #050507;
+      font-weight: 900;
+      font-size: 0.95rem;
+      padding: 4px 12px;
+      border-radius: 999px;
+      white-space: nowrap;
+    }
+
+    .price-tag.gold {
+      background: var(--gold);
+    }
+
+    .price-card p {
+      font-size: 0.82rem;
+      color: var(--muted);
+      line-height: 1.45;
+    }
+
+    /* RODAPÉ / CONTACTOS */
+    .epk-footer {
+      background: #0d0d13;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 14px;
+      padding: 18px 22px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .contact-list {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      font-size: 0.84rem;
+    }
+
+    .contact-list i {
+      color: var(--cyan);
+      width: 18px;
+    }
+
+    .socials-box {
+      text-align: right;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .socials-box strong {
+      display: block;
+      color: var(--white);
+      font-size: 0.88rem;
+      margin-bottom: 4px;
+    }
+
+    .agency-note {
+      text-align: center;
+      font-size: 0.72rem;
+      color: #6f6f7d;
+      margin-top: 16px;
+    }
+
+    .agency-note span {
+      color: var(--cyan);
+      font-weight: 700;
+    }
+
+    @media print {
+      body { background: #07070a; padding: 0; }
+      .print-bar { display: none; }
+      .epk-sheet { box-shadow: none; border-radius: 0; max-width: 100%; }
+    }
+
+    @media (max-width: 680px) {
+      .epk-header, .epk-profile, .pricing-grid { grid-template-columns: 1fr; flex-direction: column; text-align: left; }
+      .epk-title-box, .socials-box { text-align: left; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="print-bar">
+    <button class="print-btn" onclick="window.print()">
+      <i class="fa-solid fa-file-pdf"></i> GUARDAR EM PDF / IMPRIMIR PRESS KIT
+    </button>
+  </div>
+
+  <div class="epk-sheet">
+    <!-- CABEÇALHO -->
+    <div class="epk-header">
+      <img src="logo-nanndox.jpeg" alt="Deejay Nanndox" class="epk-logo" />
+      <div class="epk-title-box">
+        <span class="badge-2027">OFFICIAL PRESS KIT &amp; RATES 2027</span>
+        <h1>DJ NANNDOX (Nando Dias)</h1>
+        <p class="epk-genres">TECH HOUSE • AFRO HOUSE • AFRO-LATIN • EDM</p>
+      </div>
+    </div>
+
+    <!-- BIO & FOTO -->
+    <div class="epk-profile">
+      <img src="foto-nanndox.jpeg" alt="DJ Nanndox" class="epk-photo" />
+      <div class="epk-bio">
+        <h2>ARTIST BIOGRAPHY</h2>
+        <p>
+          <strong>DJ NANNDOX (Nando Dias)</strong> é um DJ e produtor Brasileiro/Português com <strong>18 anos de experiência</strong> em cabines, reconhecido pela energia de pista e pela fusão envolvente entre <strong>Tech House, Afro House, Afro-Latin e Dance/EDM</strong>.
+        </p>
+        <p>
+          Com leitura de pista versátil para clubes, sunsets e eventos privados, entrega sets dinâmicos e produções exclusivas adaptadas ao ADN de cada noite.
+        </p>
+        <div class="venues-strip">
+          <strong>CABINES &amp; RESIDÊNCIAS:</strong> Urban Beach • Havana Docas • Hawaii Docas • Álcool Puro • TOPFLOOR Club (Lisboa) • Midnight Club &amp; Carnaval de Lausanne (Suíça).
+        </div>
+      </div>
+    </div>
+
+    <!-- TABELA DE PREÇOS EXPOSTOS -->
+    <div class="pricing-section">
+      <h2><span>//</span> FORMATOS &amp; CACHETS 2027</h2>
+      <div class="pricing-grid">
+        <div class="price-card">
+          <div class="price-top">
+            <h3>PACK CLUB / BAR (2 HORAS)</h3>
+            <span class="price-tag">80€</span>
+          </div>
+          <p>Set de 2 horas personalizado (Tech House / Afro House / Open Format) + <strong>Flyer promocional incluído</strong> para redes sociais.</p>
+        </div>
+
+        <div class="price-card featured">
+          <div class="price-top">
+            <h3>PACK NOITE COMPLETA (4 HORAS)</h3>
+            <span class="price-tag">120€</span>
+          </div>
+          <p>Atuação de 4 horas para clubes, bares ou sunsets + <strong>Flyer promocional personalizado incluído</strong>.</p>
+        </div>
+
+        <div class="price-card">
+          <div class="price-top">
+            <h3>PACK EVENTO 8H + SOM &amp; LUZ</h3>
+            <span class="price-tag gold">DESDE 350€</span>
+          </div>
+          <p>Até 8 horas de música + aluguer de sistema de som profissional e iluminação cénica ajustados ao espaço do evento.</p>
+        </div>
+
+        <div class="price-card">
+          <div class="price-top">
+            <h3>CASAMENTOS &amp; PRIVADOS</h3>
+            <span class="price-tag gold">SOB CONSULTA</span>
+          </div>
+          <p>Acompanhamento musical completo para casamentos, batizados, aniversários e eventos corporativos à medida.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- CONTACTOS & PLATAFORMAS -->
+    <div class="epk-footer">
+      <div class="contact-list">
+        <div><i class="fa-brands fa-whatsapp"></i> <strong>Bookings / WhatsApp:</strong> +351 964 505 531</div>
+        <div><i class="fa-solid fa-envelope"></i> <strong>E-mail:</strong> ndx.devsecops@gmail.com</div>
+        <div><i class="fa-solid fa-globe"></i> <strong>Base:</strong> Lisboa, Portugal (Disponível Nacional &amp; Internacional)</div>
+      </div>
+      <div class="socials-box">
+        <strong>OUVE &amp; SEGUE OFICIALMENTE</strong>
+        <div>SoundCloud: soundcloud.com/nanndox</div>
+        <div>YouTube: youtube.com/@djnanndox</div>
+        <div>Instagram: @djnanndox</div>
+      </div>
+    </div>
+
+    <p class="agency-note">
+      © 2026–2027 DJ NANNDOX. Todos os direitos reservados. Design &amp; Press Kit por <span>VECTRA8 Digital Agency Online</span>.
+    </p>
+  </div>
+
+</body>
+</html>
