@@ -757,6 +757,36 @@ h2 {
   color: var(--text-muted);
 }
 
+/* BOTÃO DISCRETO PRESSKIT ABAIXO DA BIO */
+.bio-epk-row {
+  margin-top: 22px;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.btn-epk-discreet {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 16px;
+  border-radius: 999px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-decoration: none;
+  color: #6b6b78;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid #23232c;
+  transition: all 0.25s ease;
+}
+
+.btn-epk-discreet:hover {
+  color: var(--neon-cyan);
+  border-color: rgba(0, 240, 255, 0.45);
+  background: rgba(0, 240, 255, 0.05);
+  box-shadow: 0 0 14px rgba(0, 240, 255, 0.15);
+}
+
 /* BOOKING */
 .booking-grid {
   display: grid;
