@@ -4,10 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>DJ NANNDOX | Official Site — Tech House, Afro House & Bookings 2027</title>
-  <meta name="description" content="Site oficial de DJ Nanndox (Nando Dias). Sets, remixes, SoundCloud, YouTube, Instagram e agendamento para 2027." />
+  <meta name="description" content="Site oficial de DJ Nanndox (Nando Dias). Sets no SoundCloud, YouTube, Instagram, links exclusivos e agendamento para 2027." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&family=Permanent+Marker&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
   <link rel="stylesheet" href="style.css" />
 </head>
@@ -17,13 +17,15 @@
   <header class="navbar" id="top">
     <div class="nav-container">
       <a href="#home" class="brand-logo" aria-label="DJ Nanndox Home">
-        <img src="./logo-nanndox.jpg" alt="Deejay Nanndox" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-block';" />
-        <span class="brand-fallback" style="display:none;">DEEJAY NANNDOX</span>
+        <div class="logo-lockup-sm">
+          <span class="logo-sub-sm">DEEJAY</span>
+          <span class="logo-main-sm">NANNDOX</span>
+        </div>
       </a>
 
       <nav class="nav-menu" id="navMenu">
         <a href="#home" class="nav-link active">HOME</a>
-        <a href="#music" class="nav-link">MUSIC &amp; FREE DL</a>
+        <a href="#music" class="nav-link">LINKS &amp; FREE DL</a>
         <a href="#soundcloud" class="nav-link">SOUNDCLOUD</a>
         <a href="#youtube" class="nav-link">YOUTUBE</a>
         <a href="#instagram" class="nav-link">INSTAGRAM</a>
@@ -46,14 +48,22 @@
 
   <!-- HERO SECTION -->
   <section class="hero" id="home">
-    <div class="hero-overlay"></div>
     <div class="hero-content">
       <p class="hero-tag">TECH HOUSE • AFRO HOUSE • AFRO-LATIN • EDM</p>
-      <img src="./logo-nanndox.jpg" alt="DJ Nanndox" class="hero-main-logo" onerror="this.style.display='none'; document.getElementById('heroFallbackTitle').style.display='block';" />
-      <h1 id="heroFallbackTitle" class="hero-fallback-title" style="display:none;">DEEJAY NANNDOX</h1>
+
+      <!-- Logótipo Oficial DEEJAY NANNDOX (Renderização Vetorial Nítida + Imagem se presente) -->
+      <div class="hero-logo-box">
+        <img src="logo-nanndox.jpg" alt="Deejay Nanndox" class="hero-main-logo" onerror="this.style.display='none'; document.getElementById('vectorLogo').style.display='flex';" />
+        <div id="vectorLogo" class="vector-logo-hero" style="display:none;">
+          <span class="v-sub">DEEJAY</span>
+          <span class="v-main">NANNDOX</span>
+          <span class="v-brush"></span>
+        </div>
+      </div>
+
       <p class="hero-subtitle">EXPERIÊNCIA DE PISTA, ENERGIA PURA E PRODUÇÕES EXCLUSIVAS PARA CLUBES E EVENTOS.</p>
       <div class="hero-actions">
-        <a href="#music" class="btn btn-primary">OUVIR &amp; FREE DOWNLOAD</a>
+        <a href="#soundcloud" class="btn btn-primary">OUVIR SETS</a>
         <a href="#contact" class="btn btn-outline">AGENDAMENTO 2027</a>
       </div>
     </div>
@@ -67,7 +77,7 @@
     </div>
   </div>
 
-  <!-- MUSIC & EXTERNAL LINKS VAULT -->
+  <!-- EXTERNAL LINKS VAULT (Sem músicas inventadas, apenas links externos geridos por ti) -->
   <section class="section section-dark" id="music">
     <div class="container">
       <div class="section-header section-header-right">
@@ -79,7 +89,6 @@
         </div>
       </div>
 
-      <!-- Lista Dinâmica de Links Externos (Adicionados pelo Admin) -->
       <div class="tracks-grid" id="tracksGrid">
         <!-- Renderizado via app.js -->
       </div>
@@ -111,12 +120,10 @@
           </iframe>
         </div>
 
-        <div class="sc-side-list" id="scCustomList">
+        <div class="sc-side-list">
           <h3>DESTAQUES DO SOUNDCLOUD</h3>
-          <p class="sc-desc">Ouve os meus últimos sets gravados ao vivo, warm-ups e sessões especiais diretamente aqui.</p>
-          <div id="scLinksContainer" class="sc-cards">
-            <!-- Links/Sets adicionados pelo Admin -->
-          </div>
+          <p class="sc-desc">Ouve os meus sets gravados ao vivo, warm-ups e sessões especiais diretamente no SoundCloud.</p>
+          <div id="scLinksContainer" class="sc-cards"></div>
         </div>
       </div>
     </div>
@@ -136,23 +143,19 @@
       </div>
 
       <div class="yt-layout">
-        <div class="yt-featured-box">
-          <div class="yt-banner-card">
-            <div class="yt-badge"><i class="fa-brands fa-youtube"></i> CANAL OFICIAL</div>
-            <h3>DJ NANNDOX ON YOUTUBE</h3>
-            <p>Acompanha os meus live sets em vídeo, gravações de pista, bastidores e sessões exclusivas diretamente no canal oficial.</p>
-            <a href="https://www.youtube.com/@djnanndox" target="_blank" rel="noopener" class="btn btn-primary">
-              ABRIR CANAL NO YOUTUBE <i class="fa-solid fa-arrow-up-right-from-square"></i>
-            </a>
-          </div>
+        <div class="yt-banner-card">
+          <div class="yt-badge"><i class="fa-brands fa-youtube"></i> CANAL OFICIAL</div>
+          <h3>DJ NANNDOX ON YOUTUBE</h3>
+          <p>Acompanha os meus live sets em vídeo, gravações de pista, bastidores e sessões exclusivas diretamente no canal oficial.</p>
+          <a href="https://www.youtube.com/@djnanndox" target="_blank" rel="noopener" class="btn btn-primary">
+            ABRIR CANAL NO YOUTUBE <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </a>
         </div>
 
         <div class="yt-side-list">
           <h3>VÍDEOS &amp; SETS EM DESTAQUE</h3>
           <p class="yt-desc">Clica abaixo para assistir às sessões publicadas no YouTube.</p>
-          <div id="ytLinksContainer" class="yt-cards">
-            <!-- Vídeos adicionados pelo Admin -->
-          </div>
+          <div id="ytLinksContainer" class="yt-cards"></div>
         </div>
       </div>
     </div>
@@ -184,9 +187,7 @@
         <div class="sc-side-list">
           <h3>DESTAQUES &amp; REELS</h3>
           <p class="sc-desc">Links diretos para atuações, flyers e publicações em destaque no Instagram.</p>
-          <div id="igLinksContainer" class="sc-cards">
-            <!-- Links Instagram adicionados pelo Admin -->
-          </div>
+          <div id="igLinksContainer" class="sc-cards"></div>
         </div>
       </div>
     </div>
@@ -203,17 +204,19 @@
         <a href="#contact" class="btn btn-primary">RESERVAR DATA 2027</a>
       </div>
 
-      <div class="shows-list" id="showsList">
-        <!-- Renderizado via app.js -->
-      </div>
+      <div class="shows-list" id="showsList"></div>
     </div>
   </section>
 
-  <!-- BIO & FOTO OFICIAL -->
+  <!-- BIO & FOTO OFICIAL (Sem etiqueta Brasil-Portugal) -->
   <section class="section section-bio" id="bio">
     <div class="container bio-grid">
-      <div class="bio-photo-frame">
-        <img src="./foto-nanndox.jpg" alt="DJ Nanndox - Nando Dias" />
+      <div class="bio-photo-frame" id="bioPhotoBox">
+        <img src="foto-nanndox.jpg" alt="DJ Nanndox - Nando Dias" onerror="this.parentElement.classList.add('photo-missing');" />
+        <div class="photo-placeholder">
+          <i class="fa-solid fa-headphones"></i>
+          <span>DJ NANNDOX</span>
+        </div>
       </div>
 
       <div class="bio-content">
@@ -343,7 +346,6 @@
         <button id="closeAdminBtn" class="close-btn">&times;</button>
       </div>
 
-      <!-- Ecrã de Login -->
       <div id="adminLoginView">
         <p class="modal-sub">Acesso reservado ao artista para adicionar links externos, redes e agenda.</p>
         <form id="adminLoginForm">
@@ -353,7 +355,6 @@
         </form>
       </div>
 
-      <!-- Ecrã do Dashboard -->
       <div id="adminDashboardView" class="hidden">
         <div class="admin-tabs">
           <button class="adm-tab active" data-target="tabAddTrack">+ LINK MÚSICA / DL</button>
@@ -363,7 +364,6 @@
           <button class="adm-tab" data-target="tabAddShow">+ AGENDA 2027</button>
         </div>
 
-        <!-- Tab 1: Adicionar Link Externo de Música/Beat/Bootleg -->
         <form id="addTrackForm" class="adm-panel">
           <label>Título da Faixa / Set / Bootleg</label>
           <input type="text" id="trackTitle" placeholder="Ex: Lisboa Sunset (Nanndox Afro Bootleg)" required />
@@ -384,7 +384,6 @@
           <button type="submit" class="btn btn-primary btn-full">PUBLICAR LINK NO SITE</button>
         </form>
 
-        <!-- Tab 2: Adicionar Set SoundCloud -->
         <form id="addScForm" class="adm-panel hidden">
           <label>Título do Set no SoundCloud</label>
           <input type="text" id="scTitle" placeholder="Ex: Fire Warm Up Vol. 1" required />
@@ -393,7 +392,6 @@
           <button type="submit" class="btn btn-primary btn-full">ADICIONAR À ABA SOUNDCLOUD</button>
         </form>
 
-        <!-- Tab 3: Adicionar Vídeo YouTube -->
         <form id="addYtForm" class="adm-panel hidden">
           <label>Título do Vídeo / Live Set no YouTube</label>
           <input type="text" id="ytTitle" placeholder="Ex: DJ Nanndox — Live Afro & Tech House Session" required />
@@ -402,7 +400,6 @@
           <button type="submit" class="btn btn-primary btn-full">ADICIONAR À ABA YOUTUBE</button>
         </form>
 
-        <!-- Tab 4: Adicionar Post/Reel Instagram -->
         <form id="addIgForm" class="adm-panel hidden">
           <label>Título do Reel / Publicação no Instagram</label>
           <input type="text" id="igTitle" placeholder="Ex: Aftermovie Noite de Lisboa — @djnanndox" required />
@@ -411,7 +408,6 @@
           <button type="submit" class="btn btn-primary btn-full">ADICIONAR À ABA INSTAGRAM</button>
         </form>
 
-        <!-- Tab 5: Adicionar Nova Entrada na Agenda 2027 -->
         <form id="addShowForm" class="adm-panel hidden">
           <label>Período / Data (2027)</label>
           <input type="text" id="showDate" placeholder="Ex: VERÃO 2027 ou 15/05/2027" required />
