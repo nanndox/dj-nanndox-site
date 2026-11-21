@@ -1,33 +1,18 @@
-// Credenciais do Painel Admin (Nanndoxadm)
 const ADMIN_CREDENTIALS = {
   user: 'Nanndoxadm',
   pass: 'nanndox2027'
 };
 
-// Links Externos de Música / Sets / Bootlegs (Sem faixas fictícias)
-const DEFAULT_TRACKS = [
-  {
-    id: 1,
-    title: 'DJ Nanndox — Sets, Remixes & Free Downloads Oficiais',
-    category: 'set',
-    genre: 'SoundCloud Oficial • Streaming & Download Direto',
-    url: 'https://soundcloud.com/nanndox'
-  }
+const DEFAULT_SC = [
+  { title: 'DJ Nanndox — Perfil Oficial & Todos os Sets', url: 'https://soundcloud.com/nanndox' }
 ];
 
-const DEFAULT_SC_SETS = [
-  { title: 'DJ Nanndox — Perfil Oficial & Todos os Sets', url: 'https://soundcloud.com/nanndox' },
-  { title: 'Fire Warm Up Vol. 1 — Afro & Tech House Session', url: 'https://soundcloud.com/nanndox' }
+const DEFAULT_YT = [
+  { title: 'Canal Oficial @djnanndox — Subscreve & Assiste', url: 'https://www.youtube.com/@djnanndox' }
 ];
 
-const DEFAULT_YT_VIDEOS = [
-  { title: 'Canal Oficial @djnanndox — Subscreve & Assiste', url: 'https://www.youtube.com/@djnanndox' },
-  { title: 'Fire Warm Up Vol. 1 — Live DJ Set', url: 'https://www.youtube.com/@djnanndox' }
-];
-
-const DEFAULT_IG_POSTS = [
-  { title: 'Perfil Oficial @djnanndox — Segue no Instagram', url: 'https://instagram.com/djnanndox' },
-  { title: 'Reels & Bastidores de Cabine — @djnanndox', url: 'https://instagram.com/djnanndox' }
+const DEFAULT_IG = [
+  { title: 'Perfil Oficial @djnanndox — Segue no Instagram', url: 'https://instagram.com/djnanndox' }
 ];
 
 const DEFAULT_SHOWS = [
@@ -36,102 +21,31 @@ const DEFAULT_SHOWS = [
   { date: 'ANO TODO 2027', venue: 'Casamentos, Batizados & Eventos Privados', city: 'Com Opção de Aluguer de Som', status: 'RESERVAS ABERTAS' }
 ];
 
-// Estado da Aplicação
-let tracks = JSON.parse(localStorage.getItem('nanndox_ext_tracks')) || DEFAULT_TRACKS;
-let scSets = JSON.parse(localStorage.getItem('nanndox_sc')) || DEFAULT_SC_SETS;
-let ytVideos = JSON.parse(localStorage.getItem('nanndox_yt')) || DEFAULT_YT_VIDEOS;
-let igPosts = JSON.parse(localStorage.getItem('nanndox_ig')) || DEFAULT_IG_POSTS;
-let shows = JSON.parse(localStorage.getItem('nanndox_shows_2027')) || DEFAULT_SHOWS;
+let scSets = JSON.parse(localStorage.getItem('nanndox_final_sc')) || DEFAULT_SC;
+let ytVideos = JSON.parse(localStorage.getItem('nanndox_final_yt')) || DEFAULT_YT;
+let igPosts = JSON.parse(localStorage.getItem('nanndox_final_ig')) || DEFAULT_IG;
+let shows = JSON.parse(localStorage.getItem('nanndox_final_shows')) || DEFAULT_SHOWS;
 
 function saveState() {
-  localStorage.setItem('nanndox_ext_tracks', JSON.stringify(tracks));
-  localStorage.setItem('nanndox_sc', JSON.stringify(scSets));
-  localStorage.setItem('nanndox_yt', JSON.stringify(ytVideos));
-  localStorage.setItem('nanndox_ig', JSON.stringify(igPosts));
-  localStorage.setItem('nanndox_shows_2027', JSON.stringify(shows));
+  localStorage.setItem('nanndox_final_sc', JSON.stringify(scSets));
+  localStorage.setItem('nanndox_final_yt', JSON.stringify(ytVideos));
+  localStorage.setItem('nanndox_final_ig', JSON.stringify(igPosts));
+  localStorage.setItem('nanndox_final_shows', JSON.stringify(shows));
 }
 
-// =========================================================
-// RENDERIZAÇÃO DE LINKS EXTERNOS DE MÚSICA / FREE DOWNLOAD
-// =========================================================
-const tracksGrid = document.getElementById('tracksGrid');
+function renderList(containerId, items, btnLabel, iconClass) {
+  const el = document.getElementById(containerId);
+  el.innerHTML = '';
+  const rowClass = containerId === 'ytLinksContainer' ? 'yt-item' : 'sc-item';
 
-function renderTracks(filter = 'all') {
-  tracksGrid.innerHTML = '';
-  const filtered = filter === 'all' ? tracks : tracks.filter(t => t.category === filter);
-
-  if (filtered.length === 0) {
-    tracksGrid.innerHTML = '<p style="color:#888;">Ainda sem links publicados nesta categoria. Adiciona pelo painel ADMIN.</p>';
-    return;
-  }
-
-  filtered.forEach(track => {
-    const row = document.createElement('div');
-    row.className = 'track-row';
-    row.innerHTML = `
-      <div class="track-meta">
-        <span class="track-badge">${track.category}</span>
-        <h4>${track.title}</h4>
-        <p>${track.genre}</p>
-      </div>
-      <a href="${track.url}" target="_blank" rel="noopener" class="dl-btn">
-        <i class="fa-solid fa-arrow-up-right-from-square"></i> OUVIR / FREE DOWNLOAD
-      </a>
-    `;
-    tracksGrid.appendChild(row);
-  });
-}
-
-document.querySelectorAll('.tab-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    renderTracks(btn.dataset.filter);
-  });
-});
-
-// =========================================================
-// SOUNDCLOUD, YOUTUBE, INSTAGRAM & AGENDAMENTO 2027 RENDER
-// =========================================================
-function renderSoundCloud() {
-  const container = document.getElementById('scLinksContainer');
-  container.innerHTML = '';
-  scSets.forEach(item => {
+  items.forEach(item => {
     const div = document.createElement('div');
-    div.className = 'sc-item';
+    div.className = rowClass;
     div.innerHTML = `
       <span>${item.title}</span>
-      <a href="${item.url}" target="_blank" rel="noopener">OUVIR <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+      <a href="${item.url}" target="_blank" rel="noopener">${btnLabel} <i class="${iconClass}"></i></a>
     `;
-    container.appendChild(div);
-  });
-}
-
-function renderYouTube() {
-  const container = document.getElementById('ytLinksContainer');
-  container.innerHTML = '';
-  ytVideos.forEach(item => {
-    const div = document.createElement('div');
-    div.className = 'yt-item';
-    div.innerHTML = `
-      <span>${item.title}</span>
-      <a href="${item.url}" target="_blank" rel="noopener">VER VÍDEO <i class="fa-brands fa-youtube"></i></a>
-    `;
-    container.appendChild(div);
-  });
-}
-
-function renderInstagram() {
-  const container = document.getElementById('igLinksContainer');
-  container.innerHTML = '';
-  igPosts.forEach(item => {
-    const div = document.createElement('div');
-    div.className = 'sc-item';
-    div.innerHTML = `
-      <span>${item.title}</span>
-      <a href="${item.url}" target="_blank" rel="noopener">VER NO IG <i class="fa-brands fa-instagram"></i></a>
-    `;
-    container.appendChild(div);
+    el.appendChild(div);
   });
 }
 
@@ -151,9 +65,6 @@ function renderShows() {
   });
 }
 
-// =========================================================
-// FORMULÁRIO DE BOOKING DIRETO PARA WHATSAPP
-// =========================================================
 document.getElementById('bookingForm').addEventListener('submit', e => {
   e.preventDefault();
   const name = document.getElementById('clientName').value;
@@ -165,33 +76,25 @@ document.getElementById('bookingForm').addEventListener('submit', e => {
   window.open(`https://wa.me/351964505531?text=${message}`, '_blank');
 });
 
-// =========================================================
-// PAINEL ADMIN (LOGIN + LINKS EXTERNOS, REDES E AGENDA)
-// =========================================================
 const adminModal = document.getElementById('adminModal');
-const openAdminBtn = document.getElementById('openAdminBtn');
-const closeAdminBtn = document.getElementById('closeAdminBtn');
-const adminLoginView = document.getElementById('adminLoginView');
-const adminDashboardView = document.getElementById('adminDashboardView');
-
-openAdminBtn.addEventListener('click', () => adminModal.classList.add('open'));
-closeAdminBtn.addEventListener('click', () => adminModal.classList.remove('open'));
+document.getElementById('openAdminBtn').addEventListener('click', () => adminModal.classList.add('open'));
+document.getElementById('closeAdminBtn').addEventListener('click', () => adminModal.classList.remove('open'));
 
 document.getElementById('adminLoginForm').addEventListener('submit', e => {
   e.preventDefault();
   const u = document.getElementById('adminUser').value.trim();
   const p = document.getElementById('adminPass').value.trim();
   if (u === ADMIN_CREDENTIALS.user && p === ADMIN_CREDENTIALS.pass) {
-    adminLoginView.classList.add('hidden');
-    adminDashboardView.classList.remove('hidden');
+    document.getElementById('adminLoginView').classList.add('hidden');
+    document.getElementById('adminDashboardView').classList.remove('hidden');
   } else {
     alert('Credenciais inválidas.');
   }
 });
 
 document.getElementById('logoutAdminBtn').addEventListener('click', () => {
-  adminDashboardView.classList.add('hidden');
-  adminLoginView.classList.remove('hidden');
+  document.getElementById('adminDashboardView').classList.add('hidden');
+  document.getElementById('adminLoginView').classList.remove('hidden');
   adminModal.classList.remove('open');
 });
 
@@ -204,68 +107,58 @@ document.querySelectorAll('.adm-tab').forEach(tab => {
   });
 });
 
-document.getElementById('addTrackForm').addEventListener('submit', e => {
-  e.preventDefault();
-  const title = document.getElementById('trackTitle').value;
-  const category = document.getElementById('trackCategory').value;
-  const genre = document.getElementById('trackGenre').value;
-  const url = document.getElementById('trackUrl').value;
-
-  tracks.unshift({ id: Date.now(), title, category, genre, url });
-  saveState();
-  renderTracks();
-  e.target.reset();
-  alert('Link externo publicado com sucesso!');
-});
-
 document.getElementById('addScForm').addEventListener('submit', e => {
   e.preventDefault();
-  const title = document.getElementById('scTitle').value;
-  const url = document.getElementById('scLink').value;
-  scSets.unshift({ title, url });
+  scSets.unshift({
+    title: document.getElementById('scTitle').value,
+    url: document.getElementById('scLink').value
+  });
   saveState();
-  renderSoundCloud();
+  renderList('scLinksContainer', scSets, 'OUVIR', 'fa-solid fa-arrow-up-right-from-square');
   e.target.reset();
-  alert('Set adicionado à secção SoundCloud!');
+  alert('Link adicionado à secção SoundCloud!');
 });
 
 document.getElementById('addYtForm').addEventListener('submit', e => {
   e.preventDefault();
-  const title = document.getElementById('ytTitle').value;
-  const url = document.getElementById('ytLink').value;
-  ytVideos.unshift({ title, url });
+  ytVideos.unshift({
+    title: document.getElementById('ytTitle').value,
+    url: document.getElementById('ytLink').value
+  });
   saveState();
-  renderYouTube();
+  renderList('ytLinksContainer', ytVideos, 'VER VÍDEO', 'fa-brands fa-youtube');
   e.target.reset();
   alert('Vídeo adicionado à secção YouTube!');
 });
 
 document.getElementById('addIgForm').addEventListener('submit', e => {
   e.preventDefault();
-  const title = document.getElementById('igTitle').value;
-  const url = document.getElementById('igLink').value;
-  igPosts.unshift({ title, url });
+  igPosts.unshift({
+    title: document.getElementById('igTitle').value,
+    url: document.getElementById('igLink').value
+  });
   saveState();
-  renderInstagram();
+  renderList('igLinksContainer', igPosts, 'VER NO IG', 'fa-brands fa-instagram');
   e.target.reset();
   alert('Publicação adicionada à secção Instagram!');
 });
 
 document.getElementById('addShowForm').addEventListener('submit', e => {
   e.preventDefault();
-  const date = document.getElementById('showDate').value;
-  const venue = document.getElementById('showVenue').value;
-  const city = document.getElementById('showCity').value;
-  const status = document.getElementById('showStatus').value;
-  shows.push({ date, venue, city, status });
+  shows.push({
+    date: document.getElementById('showDate').value,
+    venue: document.getElementById('showVenue').value,
+    city: document.getElementById('showCity').value,
+    status: document.getElementById('showStatus').value
+  });
   saveState();
   renderShows();
   e.target.reset();
-  alert('Entrada publicada na Agenda 2027!');
+  alert('Data publicada na Agenda 2027!');
 });
 
 document.getElementById('exportJsonBtn').addEventListener('click', () => {
-  const blob = new Blob([JSON.stringify({ tracks, scSets, ytVideos, igPosts, shows }, null, 2)], { type: 'application/json' });
+  const blob = new Blob([JSON.stringify({ scSets, ytVideos, igPosts, shows }, null, 2)], { type: 'application/json' });
   const a = document.createElement('a');
   a.href = URL.createObjectURL(blob);
   a.download = 'dj-nanndox-backup.json';
@@ -276,9 +169,8 @@ document.getElementById('mobileToggle').addEventListener('click', () => {
   document.getElementById('navMenu').classList.toggle('show');
 });
 
-// Inicializar Página
-renderTracks();
-renderSoundCloud();
-renderYouTube();
-renderInstagram();
+// Inicializar secções
+renderList('scLinksContainer', scSets, 'OUVIR', 'fa-solid fa-arrow-up-right-from-square');
+renderList('ytLinksContainer', ytVideos, 'VER VÍDEO', 'fa-brands fa-youtube');
+renderList('igLinksContainer', igPosts, 'VER NO IG', 'fa-brands fa-instagram');
 renderShows();

@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>DJ NANNDOX | Official Site — Tech House, Afro House & Bookings 2027</title>
-  <meta name="description" content="Site oficial de DJ Nanndox (Nando Dias). Sets no SoundCloud, YouTube, Instagram, links exclusivos e agendamento para 2027." />
+  <meta name="description" content="Site oficial de DJ Nanndox (Nando Dias). Sets no SoundCloud, YouTube, Instagram e agendamento para 2027." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&family=Permanent+Marker&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
@@ -13,11 +13,12 @@
 </head>
 <body>
 
-  <!-- TOP NAVIGATION -->
+  <!-- NAVEGAÇÃO SUPERIOR -->
   <header class="navbar" id="top">
     <div class="nav-container">
       <a href="#home" class="brand-logo" aria-label="DJ Nanndox Home">
-        <div class="logo-lockup-sm">
+        <img src="logo-nanndox.jpeg" alt="Deejay Nanndox" onerror="this.style.display='none'; document.getElementById('navLogoFallback').style.display='flex';" />
+        <div id="navLogoFallback" class="logo-lockup-sm" style="display:none;">
           <span class="logo-sub-sm">DEEJAY</span>
           <span class="logo-main-sm">NANNDOX</span>
         </div>
@@ -25,7 +26,6 @@
 
       <nav class="nav-menu" id="navMenu">
         <a href="#home" class="nav-link active">HOME</a>
-        <a href="#music" class="nav-link">LINKS &amp; FREE DL</a>
         <a href="#soundcloud" class="nav-link">SOUNDCLOUD</a>
         <a href="#youtube" class="nav-link">YOUTUBE</a>
         <a href="#instagram" class="nav-link">INSTAGRAM</a>
@@ -46,14 +46,13 @@
     </div>
   </header>
 
-  <!-- HERO SECTION -->
+  <!-- HERO PRINCIPAL -->
   <section class="hero" id="home">
     <div class="hero-content">
       <p class="hero-tag">TECH HOUSE • AFRO HOUSE • AFRO-LATIN • EDM</p>
 
-      <!-- Logótipo Oficial DEEJAY NANNDOX (Renderização Vetorial Nítida + Imagem se presente) -->
       <div class="hero-logo-box">
-        <img src="logo-nanndox.jpg" alt="Deejay Nanndox" class="hero-main-logo" onerror="this.style.display='none'; document.getElementById('vectorLogo').style.display='flex';" />
+        <img src="logo-nanndox.jpeg" alt="Deejay Nanndox" class="hero-main-logo" onerror="this.style.display='none'; document.getElementById('vectorLogo').style.display='flex';" />
         <div id="vectorLogo" class="vector-logo-hero" style="display:none;">
           <span class="v-sub">DEEJAY</span>
           <span class="v-main">NANNDOX</span>
@@ -63,44 +62,26 @@
 
       <p class="hero-subtitle">EXPERIÊNCIA DE PISTA, ENERGIA PURA E PRODUÇÕES EXCLUSIVAS PARA CLUBES E EVENTOS.</p>
       <div class="hero-actions">
-        <a href="#soundcloud" class="btn btn-primary">OUVIR SETS</a>
+        <a href="#soundcloud" class="btn btn-primary">OUVIR NO SOUNDCLOUD</a>
         <a href="#contact" class="btn btn-outline">AGENDAMENTO 2027</a>
       </div>
     </div>
   </section>
 
-  <!-- TICKER BAR -->
+  <!-- BARRA ANIMADA -->
   <div class="ticker-wrap">
     <div class="ticker">
-      <span>NEW RELEASES • EXCLUSIVE BOOTLEGS • FREE DOWNLOAD NO SIGN-UP • AGENDAMENTO ABERTO 2027 • TECH HOUSE &amp; AFRO HOUSE • </span>
-      <span>NEW RELEASES • EXCLUSIVE BOOTLEGS • FREE DOWNLOAD NO SIGN-UP • AGENDAMENTO ABERTO 2027 • TECH HOUSE &amp; AFRO HOUSE • </span>
+      <span>SOUNDCLOUD SETS • YOUTUBE LIVE SESSIONS • INSTAGRAM @DJNANNDOX • AGENDAMENTO ABERTO 2027 • TECH HOUSE &amp; AFRO HOUSE • </span>
+      <span>SOUNDCLOUD SETS • YOUTUBE LIVE SESSIONS • INSTAGRAM @DJNANNDOX • AGENDAMENTO ABERTO 2027 • TECH HOUSE &amp; AFRO HOUSE • </span>
     </div>
   </div>
 
-  <!-- EXTERNAL LINKS VAULT (Sem músicas inventadas, apenas links externos geridos por ti) -->
-  <section class="section section-dark" id="music">
-    <div class="container">
-      <div class="section-header section-header-right">
-        <div class="filter-tabs" id="filterTabs">
-          <button class="tab-btn active" data-filter="all">TODOS</button>
-          <button class="tab-btn" data-filter="set">SETS</button>
-          <button class="tab-btn" data-filter="remix">REMIXES &amp; BOOTLEGS</button>
-          <button class="tab-btn" data-filter="beat">BEATS &amp; ORIGINAIS</button>
-        </div>
-      </div>
-
-      <div class="tracks-grid" id="tracksGrid">
-        <!-- Renderizado via app.js -->
-      </div>
-    </div>
-  </section>
-
-  <!-- SOUNDCLOUD WINDOW / ABA DEDICADA -->
+  <!-- JANELA / ABA SOUNDCLOUD -->
   <section class="section section-contrast" id="soundcloud">
     <div class="container">
       <div class="section-header">
         <div>
-          <span class="eyebrow">STREAMING OFICIAL</span>
+          <span class="eyebrow">STREAMING &amp; FREE DOWNLOADS OFICIAIS</span>
           <h2>SOUNDCLOUD SETS &amp; MIXES</h2>
         </div>
         <a href="https://soundcloud.com/nanndox" target="_blank" rel="noopener" class="btn btn-sm btn-dark">
@@ -121,15 +102,15 @@
         </div>
 
         <div class="sc-side-list">
-          <h3>DESTAQUES DO SOUNDCLOUD</h3>
-          <p class="sc-desc">Ouve os meus sets gravados ao vivo, warm-ups e sessões especiais diretamente no SoundCloud.</p>
+          <h3>DESTAQUES &amp; LINKS SOUNDCLOUD</h3>
+          <p class="sc-desc">Ouve os meus sets gravados ao vivo, remixes e sessões especiais diretamente no SoundCloud.</p>
           <div id="scLinksContainer" class="sc-cards"></div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- YOUTUBE WINDOW / ABA DEDICADA -->
+  <!-- JANELA / ABA YOUTUBE -->
   <section class="section section-dark" id="youtube">
     <div class="container">
       <div class="section-header">
@@ -161,7 +142,7 @@
     </div>
   </section>
 
-  <!-- INSTAGRAM WINDOW / ABA DEDICADA -->
+  <!-- JANELA / ABA INSTAGRAM -->
   <section class="section section-contrast" id="instagram">
     <div class="container">
       <div class="section-header">
@@ -208,11 +189,11 @@
     </div>
   </section>
 
-  <!-- BIO & FOTO OFICIAL (Sem etiqueta Brasil-Portugal) -->
+  <!-- BIO & FOTO OFICIAL (SEM ETIQUETA BRASIL • PORTUGAL E SEM PARÁGRAFO FINAL) -->
   <section class="section section-bio" id="bio">
     <div class="container bio-grid">
-      <div class="bio-photo-frame" id="bioPhotoBox">
-        <img src="foto-nanndox.jpg" alt="DJ Nanndox - Nando Dias" onerror="this.parentElement.classList.add('photo-missing');" />
+      <div class="bio-photo-frame">
+        <img src="foto-nanndox.jpeg" alt="DJ Nanndox - Nando Dias" onerror="this.parentElement.classList.add('photo-missing');" />
         <div class="photo-placeholder">
           <i class="fa-solid fa-headphones"></i>
           <span>DJ NANNDOX</span>
@@ -250,7 +231,7 @@
     </div>
   </section>
 
-  <!-- BOOKING & CONTACT (TUDO SOB CONSULTA + CASAMENTOS/BATIZADOS + ALUGUER DE SOM) -->
+  <!-- BOOKINGS 2027 & SERVIÇOS (TODOS SOB CONSULTA) -->
   <section class="section section-dark" id="contact">
     <div class="container">
       <div class="section-header">
@@ -325,7 +306,7 @@
     </div>
   </section>
 
-  <!-- FOOTER -->
+  <!-- RODAPÉ -->
   <footer class="footer">
     <div class="container footer-content">
       <p>© 2026–2027 DJ NANNDOX (Nando Dias). Todos os direitos reservados.</p>
@@ -338,7 +319,7 @@
     </div>
   </footer>
 
-  <!-- MODAL PAINEL ADMIN (Nanndoxadm) -->
+  <!-- MODAL PAINEL ADMIN -->
   <div class="modal-backdrop" id="adminModal">
     <div class="modal-box">
       <div class="modal-header">
@@ -347,7 +328,7 @@
       </div>
 
       <div id="adminLoginView">
-        <p class="modal-sub">Acesso reservado ao artista para adicionar links externos, redes e agenda.</p>
+        <p class="modal-sub">Acesso reservado ao artista para adicionar links externos e gerir a agenda 2027.</p>
         <form id="adminLoginForm">
           <input type="text" id="adminUser" placeholder="Utilizador" required />
           <input type="password" id="adminPass" placeholder="Palavra-passe" required />
@@ -357,37 +338,16 @@
 
       <div id="adminDashboardView" class="hidden">
         <div class="admin-tabs">
-          <button class="adm-tab active" data-target="tabAddTrack">+ LINK MÚSICA / DL</button>
-          <button class="adm-tab" data-target="tabAddSC">+ SOUNDCLOUD</button>
+          <button class="adm-tab active" data-target="tabAddSC">+ SOUNDCLOUD</button>
           <button class="adm-tab" data-target="tabAddYT">+ YOUTUBE</button>
           <button class="adm-tab" data-target="tabAddIG">+ INSTAGRAM</button>
           <button class="adm-tab" data-target="tabAddShow">+ AGENDA 2027</button>
         </div>
 
-        <form id="addTrackForm" class="adm-panel">
-          <label>Título da Faixa / Set / Bootleg</label>
-          <input type="text" id="trackTitle" placeholder="Ex: Lisboa Sunset (Nanndox Afro Bootleg)" required />
-
-          <label>Categoria</label>
-          <select id="trackCategory">
-            <option value="remix">Remix &amp; Bootleg</option>
-            <option value="set">DJ Set</option>
-            <option value="beat">Beat &amp; Original</option>
-          </select>
-
-          <label>Género / Plataforma / Detalhes</label>
-          <input type="text" id="trackGenre" placeholder="Ex: Afro House • Free Download Direto" required />
-
-          <label>Link Externo (Google Drive, Dropbox, SoundCloud, Hypeddit, WeTransfer, etc.)</label>
-          <input type="url" id="trackUrl" placeholder="https://..." required />
-
-          <button type="submit" class="btn btn-primary btn-full">PUBLICAR LINK NO SITE</button>
-        </form>
-
-        <form id="addScForm" class="adm-panel hidden">
-          <label>Título do Set no SoundCloud</label>
-          <input type="text" id="scTitle" placeholder="Ex: Fire Warm Up Vol. 1" required />
-          <label>Link do Set no SoundCloud</label>
+        <form id="addScForm" class="adm-panel">
+          <label>Título do Set / Link no SoundCloud</label>
+          <input type="text" id="scTitle" placeholder="Ex: Fire Warm Up Vol. 1 (SoundCloud)" required />
+          <label>Link do SoundCloud</label>
           <input type="url" id="scLink" placeholder="https://soundcloud.com/nanndox/..." required />
           <button type="submit" class="btn btn-primary btn-full">ADICIONAR À ABA SOUNDCLOUD</button>
         </form>
