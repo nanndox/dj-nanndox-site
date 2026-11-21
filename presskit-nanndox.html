@@ -8,6 +8,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
   <style>
     :root {
       --bg: #07070a;
@@ -19,7 +20,18 @@
       --muted: #a6a6b2;
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
+
+    @page {
+      size: A4 portrait;
+      margin: 0;
+    }
 
     body {
       background: #030305;
@@ -31,32 +43,53 @@
       padding: 24px 12px;
     }
 
-    .print-bar {
-      margin-bottom: 18px;
+    /* BARRA DE EXPORTAÇÃO */
+    .export-bar {
+      margin-bottom: 20px;
       display: flex;
       gap: 12px;
+      flex-wrap: wrap;
+      justify-content: center;
     }
 
-    .print-btn {
-      background: linear-gradient(135deg, var(--cyan), #3b82f6);
-      color: #050507;
+    .action-btn {
       border: none;
-      padding: 12px 24px;
+      padding: 13px 24px;
       border-radius: 999px;
       font-weight: 800;
-      font-size: 0.82rem;
+      font-size: 0.8rem;
       letter-spacing: 0.1em;
       cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .action-btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-pdf {
+      background: linear-gradient(135deg, var(--cyan), #3b82f6);
+      color: #050507;
       box-shadow: 0 0 20px rgba(0, 240, 255, 0.45);
     }
 
-    /* FOLHA A4 / FLYER VERTICAL */
+    .btn-jpeg {
+      background: linear-gradient(135deg, var(--gold), #e5c596);
+      color: #050507;
+      box-shadow: 0 0 20px rgba(200, 169, 126, 0.35);
+    }
+
+    /* FOLHA OFICIAL A4 / FLYER */
     .epk-sheet {
-      width: 100%;
-      max-width: 820px;
-      background: radial-gradient(circle at 85% 12%, rgba(0, 240, 255, 0.14), transparent 40%),
-                  radial-gradient(circle at 12% 85%, rgba(168, 85, 247, 0.16), transparent 45%),
-                  var(--bg);
+      width: 820px;
+      max-width: 100%;
+      background:
+        radial-gradient(circle at 88% 10%, rgba(0, 240, 255, 0.16), transparent 42%),
+        radial-gradient(circle at 12% 88%, rgba(168, 85, 247, 0.18), transparent 45%),
+        var(--bg);
       border: 1.5px solid rgba(0, 240, 255, 0.35);
       border-radius: 20px;
       padding: 36px 40px;
@@ -65,22 +98,23 @@
       overflow: hidden;
     }
 
-    /* TOPO */
+    /* CABEÇALHO */
     .epk-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
       gap: 20px;
-      padding-bottom: 24px;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-      margin-bottom: 26px;
+      padding-bottom: 22px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+      margin-bottom: 24px;
     }
 
     .epk-logo {
-      max-width: 240px;
+      width: 235px;
       height: auto;
       border-radius: 8px;
-      border: 1px solid rgba(0, 240, 255, 0.25);
+      border: 1px solid rgba(0, 240, 255, 0.28);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
     }
 
     .epk-title-box {
@@ -92,7 +126,7 @@
       background: rgba(0, 240, 255, 0.12);
       border: 1px solid var(--cyan);
       color: var(--cyan);
-      font-size: 0.72rem;
+      font-size: 0.7rem;
       font-weight: 800;
       letter-spacing: 0.18em;
       padding: 5px 14px;
@@ -117,34 +151,34 @@
     /* PERFIL & BIO */
     .epk-profile {
       display: grid;
-      grid-template-columns: 230px 1fr;
-      gap: 28px;
+      grid-template-columns: 225px 1fr;
+      gap: 26px;
       align-items: center;
-      margin-bottom: 28px;
+      margin-bottom: 26px;
     }
 
     .epk-photo {
-      width: 100%;
-      height: 270px;
+      width: 225px;
+      height: 265px;
       object-fit: cover;
       border-radius: 14px;
-      border: 1.5px solid rgba(168, 85, 247, 0.5);
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
+      border: 1.5px solid rgba(168, 85, 247, 0.55);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.65);
     }
 
     .epk-bio h2 {
       font-family: 'Space Grotesk', sans-serif;
-      font-size: 1.15rem;
+      font-size: 1.1rem;
       color: var(--cyan);
-      letter-spacing: 0.12em;
+      letter-spacing: 0.14em;
       margin-bottom: 10px;
     }
 
     .epk-bio p {
-      font-size: 0.9rem;
+      font-size: 0.89rem;
       line-height: 1.55;
-      color: #d8d8e0;
-      margin-bottom: 12px;
+      color: #dcdce4;
+      margin-bottom: 11px;
     }
 
     .venues-strip {
@@ -152,8 +186,9 @@
       border-left: 3px solid var(--gold);
       padding: 10px 14px;
       border-radius: 6px;
-      font-size: 0.8rem;
-      color: #eaeaf0;
+      font-size: 0.79rem;
+      line-height: 1.45;
+      color: #ededf5;
     }
 
     .venues-strip strong {
@@ -163,7 +198,7 @@
     /* TABELA DE PREÇOS */
     .pricing-section h2 {
       font-family: 'Space Grotesk', sans-serif;
-      font-size: 1.15rem;
+      font-size: 1.1rem;
       letter-spacing: 0.14em;
       color: var(--white);
       margin-bottom: 14px;
@@ -180,14 +215,14 @@
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 14px;
-      margin-bottom: 26px;
+      margin-bottom: 24px;
     }
 
     .price-card {
       background: var(--card);
-      border: 1px solid rgba(0, 240, 255, 0.24);
+      border: 1px solid rgba(0, 240, 255, 0.25);
       border-radius: 14px;
-      padding: 18px 20px;
+      padding: 17px 19px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -196,7 +231,7 @@
     .price-card.featured {
       border-color: var(--cyan);
       background: linear-gradient(145deg, #141824 0%, #0f1016 100%);
-      box-shadow: 0 0 22px rgba(0, 240, 255, 0.12);
+      box-shadow: 0 0 22px rgba(0, 240, 255, 0.14);
     }
 
     .price-top {
@@ -209,7 +244,7 @@
 
     .price-top h3 {
       font-family: 'Space Grotesk', sans-serif;
-      font-size: 0.98rem;
+      font-size: 0.95rem;
       color: var(--white);
     }
 
@@ -217,7 +252,7 @@
       background: var(--cyan);
       color: #050507;
       font-weight: 900;
-      font-size: 0.95rem;
+      font-size: 0.92rem;
       padding: 4px 12px;
       border-radius: 999px;
       white-space: nowrap;
@@ -228,7 +263,7 @@
     }
 
     .price-card p {
-      font-size: 0.82rem;
+      font-size: 0.81rem;
       color: var(--muted);
       line-height: 1.45;
     }
@@ -238,7 +273,7 @@
       background: #0d0d13;
       border: 1px solid rgba(255, 255, 255, 0.1);
       border-radius: 14px;
-      padding: 18px 22px;
+      padding: 16px 20px;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -250,7 +285,7 @@
       display: flex;
       flex-direction: column;
       gap: 5px;
-      font-size: 0.84rem;
+      font-size: 0.83rem;
     }
 
     .contact-list i {
@@ -260,22 +295,23 @@
 
     .socials-box {
       text-align: right;
-      font-size: 0.8rem;
+      font-size: 0.79rem;
       color: var(--muted);
+      line-height: 1.45;
     }
 
     .socials-box strong {
       display: block;
       color: var(--white);
-      font-size: 0.88rem;
-      margin-bottom: 4px;
+      font-size: 0.85rem;
+      margin-bottom: 3px;
     }
 
     .agency-note {
       text-align: center;
-      font-size: 0.72rem;
-      color: #6f6f7d;
-      margin-top: 16px;
+      font-size: 0.71rem;
+      color: #777786;
+      margin-top: 14px;
     }
 
     .agency-note span {
@@ -284,26 +320,50 @@
     }
 
     @media print {
-      body { background: #07070a; padding: 0; }
-      .print-bar { display: none; }
-      .epk-sheet { box-shadow: none; border-radius: 0; max-width: 100%; }
+      body {
+        background: #07070a;
+        padding: 0;
+      }
+      .export-bar {
+        display: none !important;
+      }
+      .epk-sheet {
+        width: 100%;
+        box-shadow: none;
+        border-radius: 0;
+        border: none;
+        padding: 28px 34px;
+      }
     }
 
     @media (max-width: 680px) {
-      .epk-header, .epk-profile, .pricing-grid { grid-template-columns: 1fr; flex-direction: column; text-align: left; }
-      .epk-title-box, .socials-box { text-align: left; }
+      .epk-header, .epk-profile, .pricing-grid {
+        grid-template-columns: 1fr;
+        flex-direction: column;
+        text-align: left;
+      }
+      .epk-title-box, .socials-box {
+        text-align: left;
+      }
+      .epk-photo {
+        width: 100%;
+        height: 320px;
+      }
     }
   </style>
 </head>
 <body>
 
-  <div class="print-bar">
-    <button class="print-btn" onclick="window.print()">
-      <i class="fa-solid fa-file-pdf"></i> GUARDAR EM PDF / IMPRIMIR PRESS KIT
+  <div class="export-bar">
+    <button class="action-btn btn-pdf" onclick="window.print()">
+      <i class="fa-solid fa-file-pdf"></i> GUARDAR PDF OFICIAL (A4)
+    </button>
+    <button class="action-btn btn-jpeg" id="downloadJpegBtn" onclick="downloadHighResJpeg()">
+      <i class="fa-solid fa-image"></i> DESCARREGAR JPEG (ALTA RESOLUÇÃO)
     </button>
   </div>
 
-  <div class="epk-sheet">
+  <div class="epk-sheet" id="epkSheet">
     <!-- CABEÇALHO -->
     <div class="epk-header">
       <img src="logo-nanndox.jpeg" alt="Deejay Nanndox" class="epk-logo" />
@@ -374,7 +434,7 @@
       <div class="contact-list">
         <div><i class="fa-brands fa-whatsapp"></i> <strong>Bookings / WhatsApp:</strong> +351 964 505 531</div>
         <div><i class="fa-solid fa-envelope"></i> <strong>E-mail:</strong> ndx.devsecops@gmail.com</div>
-        <div><i class="fa-solid fa-globe"></i> <strong>Base:</strong> Lisboa, Portugal (Disponível Nacional &amp; Internacional)</div>
+        <div><i class="fa-solid fa-globe"></i> <strong>Site Oficial:</strong> dj-nanndox-site1.vercel.app</div>
       </div>
       <div class="socials-box">
         <strong>OUVE &amp; SEGUE OFICIALMENTE</strong>
@@ -389,5 +449,34 @@
     </p>
   </div>
 
+  <script>
+    async function downloadHighResJpeg() {
+      const btn = document.getElementById('downloadJpegBtn');
+      const sheet = document.getElementById('epkSheet');
+      const originalHtml = btn.innerHTML;
+
+      btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> A GERAR JPEG HD...';
+      btn.disabled = true;
+
+      try {
+        const canvas = await html2canvas(sheet, {
+          scale: 3, // 2460px de largura (qualidade de impressão / retina)
+          useCORS: true,
+          backgroundColor: '#07070a',
+          logging: false
+        });
+
+        const link = document.createElement('a');
+        link.download = 'PressKit-DJ-Nanndox-2027.jpg';
+        link.href = canvas.toDataURL('image/jpeg', 0.96);
+        link.click();
+      } catch (err) {
+        alert('Erro ao gerar JPEG. Usa o botão GUARDAR PDF OFICIAL.');
+      } finally {
+        btn.innerHTML = originalHtml;
+        btn.disabled = false;
+      }
+    }
+  </script>
 </body>
 </html>
