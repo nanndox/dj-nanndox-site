@@ -1,8 +1,5 @@
 // =========================================================
 // CONFIGURAÇÃO SUPABASE (Opcional — para armazenamento na nuvem)
-// Quando criares o teu projeto gratuito em supabase.com:
-// 1. Cria um bucket público chamado "nanndox-audio"
-// 2. Cola abaixo a tua URL e ANON_KEY
 // =========================================================
 const SUPABASE_URL = '';
 const SUPABASE_ANON_KEY = '';
@@ -16,7 +13,7 @@ const ADMIN_CREDENTIALS = {
   pass: 'nanndox2027'
 };
 
-// Dados iniciais de demonstração (substituídos assim que carregares os teus no Admin)
+// Dados iniciais
 const DEFAULT_TRACKS = [
   {
     id: 1,
@@ -46,24 +43,32 @@ const DEFAULT_SC_SETS = [
   { title: 'Fire Warm Up Vol. 1 — Afro & Tech House Session', url: 'https://soundcloud.com/nanndox' }
 ];
 
-const DEFAULT_SHOWS = [
-  { date: '2026-12-05', venue: 'Lisboa Club Night', city: 'Lisboa, Portugal', status: 'CONFIRMADO' },
-  { date: '2026-12-31', venue: 'Réveillon Special Set', city: 'Grande Lisboa, Portugal', status: 'BOOKINGS OPEN' }
+const DEFAULT_YT_VIDEOS = [
+  { title: 'Canal Oficial @djnanndox — Subscreve & Assiste', url: 'https://www.youtube.com/@djnanndox' },
+  { title: 'Fire Warm Up Vol. 1 — Live DJ Set', url: 'https://www.youtube.com/@djnanndox' }
 ];
 
-// Estado da Aplicação (persistido em localStorage + preparado para Supabase)
+const DEFAULT_SHOWS = [
+  { date: 'TEMPORADA 2027', venue: 'Clubes, Bares & Residências', city: 'Portugal & Europa', status: 'AGENDAMENTO ABERTO' },
+  { date: 'VERÃO 2027', venue: 'Sunsets, Beach Clubs & Festivais', city: 'Nacional & Internacional', status: 'DATAS DISPONÍVEIS' },
+  { date: 'ANO TODO 2027', venue: 'Eventos Privados, Casamentos & Festas Exclusivas', city: 'Sob Consulta', status: 'RESERVAS ABERTAS' }
+];
+
+// Estado da Aplicação
 let tracks = JSON.parse(localStorage.getItem('nanndox_tracks')) || DEFAULT_TRACKS;
 let scSets = JSON.parse(localStorage.getItem('nanndox_sc')) || DEFAULT_SC_SETS;
-let shows = JSON.parse(localStorage.getItem('nanndox_shows')) || DEFAULT_SHOWS;
+let ytVideos = JSON.parse(localStorage.getItem('nanndox_yt')) || DEFAULT_YT_VIDEOS;
+let shows = JSON.parse(localStorage.getItem('nanndox_shows_2027')) || DEFAULT_SHOWS;
 
 function saveState() {
   localStorage.setItem('nanndox_tracks', JSON.stringify(tracks));
   localStorage.setItem('nanndox_sc', JSON.stringify(scSets));
-  localStorage.setItem('nanndox_shows', JSON.stringify(shows));
+  localStorage.setItem('nanndox_yt', JSON.stringify(ytVideos));
+  localStorage.setItem('nanndox_shows_2027', JSON.stringify(shows));
 }
 
 // =========================================================
-// RENDERIZAÇÃO DE FAIXAS & AUDIO PLAYER (FREE DOWNLOAD DIRETO)
+// RENDERIZAÇÃO DE FAIXAS & AUDIO PLAYER
 // =========================================================
 const tracksGrid = document.getElementById('tracksGrid');
 const audioEngine = document.getElementById('audioEngine');
@@ -150,7 +155,6 @@ seekBar.addEventListener('input', () => {
   audioEngine.currentTime = (seekBar.value / 100) * audioEngine.duration;
 });
 
-// Filtros das categorias
 document.querySelectorAll('.tab-btn').forEach(btn => {
   btn.addEventListener('click', () => {
     document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
@@ -160,7 +164,7 @@ document.querySelectorAll('.tab-btn').forEach(btn => {
 });
 
 // =========================================================
-// SOUNDCLOUD & SHOWS RENDER
+// SOUNDCLOUD, YOUTUBE & AGENDAMENTO 2027 RENDER
 // =========================================================
 function renderSoundCloud() {
   const container = document.getElementById('scLinksContainer');
@@ -171,6 +175,20 @@ function renderSoundCloud() {
     div.innerHTML = `
       <span>${item.title}</span>
       <a href="${item.url}" target="_blank" rel="noopener">OUVIR <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+    `;
+    container.appendChild(div);
+  });
+}
+
+function renderYouTube() {
+  const container = document.getElementById('ytLinksContainer');
+  container.innerHTML = '';
+  ytVideos.forEach(item => {
+    const div = document.createElement('div');
+    div.className = 'yt-item';
+    div.innerHTML = `
+      <span>${item.title}</span>
+      <a href="${item.url}" target="_blank" rel="noopener">VER VÍDEO <i class="fa-brands fa-youtube"></i></a>
     `;
     container.appendChild(div);
   });
@@ -202,12 +220,12 @@ document.getElementById('bookingForm').addEventListener('submit', e => {
   const date = document.getElementById('eventDate').value;
   const pack = document.getElementById('eventPack').value;
 
-  const message = `Olá DJ Nanndox! Gostava de verificar disponibilidade para booking:%0A• *Nome/Clube:* ${name}%0A• *Local:* ${location}%0A• *Data:* ${date}%0A• *Formato:* ${pack}`;
+  const message = `Olá DJ Nanndox! Gostava de verificar disponibilidade para booking em 2027:%0A• *Nome/Clube:* ${name}%0A• *Local:* ${location}%0A• *Data:* ${date}%0A• *Formato:* ${pack}`;
   window.open(`https://wa.me/351964505531?text=${message}`, '_blank');
 });
 
 // =========================================================
-// PAINEL ADMIN (LOGIN + UPLOAD DE FAIXAS, SOUNDCLOUD E SHOWS)
+// PAINEL ADMIN (LOGIN + UPLOAD DE FAIXAS, SOUNDCLOUD, YOUTUBE E AGENDA)
 // =========================================================
 const adminModal = document.getElementById('adminModal');
 const openAdminBtn = document.getElementById('openAdminBtn');
@@ -236,7 +254,6 @@ document.getElementById('logoutAdminBtn').addEventListener('click', () => {
   adminModal.classList.remove('open');
 });
 
-// Alternar abas dentro do Admin
 document.querySelectorAll('.adm-tab').forEach(tab => {
   tab.addEventListener('click', () => {
     document.querySelectorAll('.adm-tab').forEach(t => t.classList.remove('active'));
@@ -246,7 +263,6 @@ document.querySelectorAll('.adm-tab').forEach(tab => {
   });
 });
 
-// Publicar Nova Faixa (Supabase Storage ou Ficheiro/URL Local)
 document.getElementById('addTrackForm').addEventListener('submit', async e => {
   e.preventDefault();
   const title = document.getElementById('trackTitle').value;
@@ -280,7 +296,6 @@ document.getElementById('addTrackForm').addEventListener('submit', async e => {
   alert('Faixa publicada com sucesso para Free Download!');
 });
 
-// Adicionar Set SoundCloud
 document.getElementById('addScForm').addEventListener('submit', e => {
   e.preventDefault();
   const title = document.getElementById('scTitle').value;
@@ -292,7 +307,17 @@ document.getElementById('addScForm').addEventListener('submit', e => {
   alert('Set adicionado à secção SoundCloud!');
 });
 
-// Adicionar Nova Data de Show
+document.getElementById('addYtForm').addEventListener('submit', e => {
+  e.preventDefault();
+  const title = document.getElementById('ytTitle').value;
+  const url = document.getElementById('ytLink').value;
+  ytVideos.unshift({ title, url });
+  saveState();
+  renderYouTube();
+  e.target.reset();
+  alert('Vídeo adicionado à secção YouTube!');
+});
+
 document.getElementById('addShowForm').addEventListener('submit', e => {
   e.preventDefault();
   const date = document.getElementById('showDate').value;
@@ -303,19 +328,17 @@ document.getElementById('addShowForm').addEventListener('submit', e => {
   saveState();
   renderShows();
   e.target.reset();
-  alert('Data publicada na agenda!');
+  alert('Entrada publicada na Agenda 2027!');
 });
 
-// Exportar Backup JSON
 document.getElementById('exportJsonBtn').addEventListener('click', () => {
-  const blob = new Blob([JSON.stringify({ tracks, scSets, shows }, null, 2)], { type: 'application/json' });
+  const blob = new Blob([JSON.stringify({ tracks, scSets, ytVideos, shows }, null, 2)], { type: 'application/json' });
   const a = document.createElement('a');
   a.href = URL.createObjectURL(blob);
   a.download = 'dj-nanndox-backup.json';
   a.click();
 });
 
-// Menu Mobile
 document.getElementById('mobileToggle').addEventListener('click', () => {
   document.getElementById('navMenu').classList.toggle('show');
 });
@@ -323,4 +346,5 @@ document.getElementById('mobileToggle').addEventListener('click', () => {
 // Inicializar Página
 renderTracks();
 renderSoundCloud();
+renderYouTube();
 renderShows();

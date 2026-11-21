@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>DJ NANNDOX | Official Site — Tech House, Afro House & Bookings</title>
-  <meta name="description" content="Site oficial de DJ Nanndox (Nando Dias). Ouve sets exclusivos, descarrega remixes e bootlegs grátis sem registo e garante a tua data para 2026/2027." />
+  <title>DJ NANNDOX | Official Site — Tech House, Afro House & Bookings 2027</title>
+  <meta name="description" content="Site oficial de DJ Nanndox (Nando Dias). Ouve sets exclusivos no SoundCloud e YouTube, descarrega faixas grátis sem registo e agenda datas para 2027." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
@@ -13,7 +13,7 @@
 </head>
 <body>
 
-  <!-- TOP NAVIGATION (Estilo SJRM + Tiësto) -->
+  <!-- TOP NAVIGATION -->
   <header class="navbar" id="top">
     <div class="nav-container">
       <a href="#home" class="brand-logo" aria-label="DJ Nanndox Home">
@@ -24,13 +24,15 @@
         <a href="#home" class="nav-link active">HOME</a>
         <a href="#music" class="nav-link">MUSIC &amp; FREE DL</a>
         <a href="#soundcloud" class="nav-link">SOUNDCLOUD</a>
-        <a href="#shows" class="nav-link">SHOWS</a>
+        <a href="#youtube" class="nav-link">YOUTUBE</a>
+        <a href="#shows" class="nav-link">BOOKINGS 2027</a>
         <a href="#bio" class="nav-link">BIO</a>
         <a href="#contact" class="nav-link">CONTACT</a>
       </nav>
 
       <div class="nav-socials">
         <a href="https://soundcloud.com/nanndox" target="_blank" rel="noopener" title="SoundCloud"><i class="fa-brands fa-soundcloud"></i></a>
+        <a href="https://www.youtube.com/@djnanndox" target="_blank" rel="noopener" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
         <a href="https://instagram.com/djnanndox" target="_blank" rel="noopener" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
         <a href="https://wa.me/351964505531" target="_blank" rel="noopener" title="WhatsApp Booking"><i class="fa-brands fa-whatsapp"></i></a>
         <button class="mobile-toggle" id="mobileToggle" aria-label="Abrir Menu">
@@ -40,7 +42,7 @@
     </div>
   </header>
 
-  <!-- HERO SECTION (Estilo Tiësto Brutalista) -->
+  <!-- HERO SECTION -->
   <section class="hero" id="home">
     <div class="hero-overlay"></div>
     <div class="hero-content">
@@ -49,27 +51,23 @@
       <p class="hero-subtitle">EXPERIÊNCIA DE PISTA, ENERGIA PURA E PRODUÇÕES EXCLUSIVAS PARA CLUBES E EVENTOS.</p>
       <div class="hero-actions">
         <a href="#music" class="btn btn-primary">OUVIR &amp; FREE DOWNLOAD</a>
-        <a href="#contact" class="btn btn-outline">MARCAR DATA / BOOKING</a>
+        <a href="#contact" class="btn btn-outline">AGENDAMENTO 2027</a>
       </div>
     </div>
   </section>
 
-  <!-- TICKER BAR (Estilo SJRM) -->
+  <!-- TICKER BAR -->
   <div class="ticker-wrap">
     <div class="ticker">
-      <span>NEW RELEASES • EXCLUSIVE BOOTLEGS • FREE DOWNLOAD NO SIGN-UP • BOOKINGS OPEN 2026/2027 • TECH HOUSE &amp; AFRO HOUSE • </span>
-      <span>NEW RELEASES • EXCLUSIVE BOOTLEGS • FREE DOWNLOAD NO SIGN-UP • BOOKINGS OPEN 2026/2027 • TECH HOUSE &amp; AFRO HOUSE • </span>
+      <span>NEW RELEASES • EXCLUSIVE BOOTLEGS • FREE DOWNLOAD NO SIGN-UP • AGENDAMENTO ABERTO 2027 • TECH HOUSE &amp; AFRO HOUSE • </span>
+      <span>NEW RELEASES • EXCLUSIVE BOOTLEGS • FREE DOWNLOAD NO SIGN-UP • AGENDAMENTO ABERTO 2027 • TECH HOUSE &amp; AFRO HOUSE • </span>
     </div>
   </div>
 
-  <!-- MUSIC & EXCLUSIVE FREE DOWNLOADS VAULT -->
+  <!-- MUSIC & FREE DOWNLOADS VAULT (Sem título superior, direto ao player e filtros) -->
   <section class="section section-dark" id="music">
     <div class="container">
-      <div class="section-header">
-        <div>
-          <span class="eyebrow">EXCLUSIVOS DE PISTA • SEM REGISTO</span>
-          <h2>MUSIC, BEATS &amp; BOOTLEGS</h2>
-        </div>
+      <div class="section-header section-header-right">
         <div class="filter-tabs" id="filterTabs">
           <button class="tab-btn active" data-filter="all">TODOS</button>
           <button class="tab-btn" data-filter="set">SETS</button>
@@ -84,7 +82,7 @@
           <button id="playPauseMain" class="play-circle"><i class="fa-solid fa-play"></i></button>
           <div>
             <strong id="currentTrackTitle">Seleciona uma faixa abaixo para ouvir</strong>
-            <span id="currentTrackMeta">DJ Nanndox Vault — Free Download Direto</span>
+            <span id="currentTrackMeta">DJ Nanndox — Free Download Direto</span>
           </div>
         </div>
         <div class="player-controls">
@@ -117,7 +115,6 @@
 
       <div class="sc-layout">
         <div class="sc-embed-box">
-          <!-- Player Oficial SoundCloud do Perfil DJ Nanndox -->
           <iframe
             width="100%"
             height="420"
@@ -139,15 +136,51 @@
     </div>
   </section>
 
-  <!-- SHOWS & TOUR DATES -->
-  <section class="section section-dark" id="shows">
+  <!-- YOUTUBE WINDOW / ABA DEDICADA -->
+  <section class="section section-dark" id="youtube">
     <div class="container">
       <div class="section-header">
         <div>
-          <span class="eyebrow">AGENDA AO VIVO</span>
-          <h2>PRÓXIMAS DATAS &amp; SHOWS</h2>
+          <span class="eyebrow">VÍDEOS, LIVE SETS &amp; SESSIONS</span>
+          <h2>YOUTUBE OFFICIAL CHANNEL</h2>
         </div>
-        <a href="#contact" class="btn btn-primary">CONTRATAR PARA O TEU EVENTO</a>
+        <a href="https://www.youtube.com/@djnanndox" target="_blank" rel="noopener" class="btn btn-sm btn-youtube">
+          <i class="fa-brands fa-youtube"></i> SUBSCREVER @DJNANNDOX
+        </a>
+      </div>
+
+      <div class="yt-layout">
+        <div class="yt-featured-box">
+          <div class="yt-banner-card">
+            <div class="yt-badge"><i class="fa-brands fa-youtube"></i> CANAL OFICIAL</div>
+            <h3>DJ NANNDOX ON YOUTUBE</h3>
+            <p>Acompanha os meus live sets em vídeo, gravações de pista, bastidores e sessões exclusivas diretamente no canal oficial.</p>
+            <a href="https://www.youtube.com/@djnanndox" target="_blank" rel="noopener" class="btn btn-primary">
+              ABRIR CANAL NO YOUTUBE <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="yt-side-list">
+          <h3>VÍDEOS &amp; SETS EM DESTAQUE</h3>
+          <p class="yt-desc">Clica abaixo para assistir às sessões publicadas no YouTube.</p>
+          <div id="ytLinksContainer" class="yt-cards">
+            <!-- Vídeos adicionados pelo Admin -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AGENDAMENTO 2027 (Sem datas fixas antigas, focado em disponibilidade 2027) -->
+  <section class="section section-contrast" id="shows">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <span class="eyebrow">TOUR &amp; EVENTOS</span>
+          <h2>AGENDAMENTO PARA 2027</h2>
+        </div>
+        <a href="#contact" class="btn btn-dark">RESERVAR DATA 2027</a>
       </div>
 
       <div class="shows-list" id="showsList">
@@ -174,10 +207,7 @@
           O que começou pelo simples encanto de juntar batidas e sentir a reação das pessoas transformou-se numa caminhada natural pelas cabines, marcada pela energia contagiante e pela fusão leve e envolvente entre <strong>Tech House, Afro House, Afro-Latin e Dance/EDM</strong>.
         </p>
         <p>
-          Ao longo do seu percurso, levou a sua identidade musical aos principais clubes da noite de Lisboa — com passagens marcantes por espaços como <strong>Urban Beach, Havana Docas, Hawaii Docas, Álcool Puro e TOPFLOOR Club</strong> — e cruzou fronteiras até à Suíça, onde também deixou a sua marca na pista do <strong>Midnight Club</strong> e no <strong>Carnaval de Lausanne</strong>.
-        </p>
-        <p>
-          Hoje, mantém o mesmo entusiasmo do primeiro dia: criar remixes, bootlegs e sets pensados para fazer a pista vibrar, seja num grande clube, num sunset ou num evento privado inesquecível.
+          Ao longo do seu percurso, levou a sua identidade musical aos principais clubes da noite de Lisboa — com passagens marcantes por espaços como <strong>Urban Beach, Havana Docas, Hawaii Docas, Álcool Puro e TOPFLOOR Club</strong> — e cruzou fronteiras até à Suíça, onde também deixou a sua marca na pista do <strong>Midnight Club</strong> e no <strong>Carnaval de Lausanne</strong>, entre outras casas.
         </p>
 
         <div class="bio-stats">
@@ -204,7 +234,7 @@
       <div class="section-header">
         <div>
           <span class="eyebrow">VAMOS TRABALHAR JUNTOS</span>
-          <h2>BOOKINGS &amp; CONTACTO DIRETO</h2>
+          <h2>BOOKINGS 2027 &amp; CONTACTO DIRETO</h2>
         </div>
       </div>
 
@@ -237,7 +267,7 @@
         </div>
 
         <div class="booking-form-box">
-          <h3>PEDIDO RÁPIDO DE DATA</h3>
+          <h3>PEDIDO RÁPIDO DE DATA (2027)</h3>
           <p>Preenche abaixo para enviar o pedido diretamente para o meu WhatsApp.</p>
           <form id="bookingForm">
             <input type="text" id="clientName" placeholder="O teu nome / Nome do Clube ou Evento" required />
@@ -266,9 +296,10 @@
   <!-- FOOTER -->
   <footer class="footer">
     <div class="container footer-content">
-      <p>© 2026 DJ NANNDOX (Nando Dias). Todos os direitos reservados.</p>
+      <p>© 2026–2027 DJ NANNDOX (Nando Dias). Todos os direitos reservados.</p>
       <div class="footer-links">
         <a href="https://soundcloud.com/nanndox" target="_blank" rel="noopener">SoundCloud</a>
+        <a href="https://www.youtube.com/@djnanndox" target="_blank" rel="noopener">YouTube</a>
         <a href="https://instagram.com/djnanndox" target="_blank" rel="noopener">Instagram</a>
         <button id="openAdminBtn" class="admin-trigger">ADMIN</button>
       </div>
@@ -285,7 +316,7 @@
 
       <!-- Ecrã de Login -->
       <div id="adminLoginView">
-        <p class="modal-sub">Acesso reservado ao artista para carregar faixas, sets e datas.</p>
+        <p class="modal-sub">Acesso reservado ao artista para carregar faixas, sets, vídeos e datas.</p>
         <form id="adminLoginForm">
           <input type="text" id="adminUser" placeholder="Utilizador" required />
           <input type="password" id="adminPass" placeholder="Palavra-passe" required />
@@ -296,9 +327,10 @@
       <!-- Ecrã do Dashboard -->
       <div id="adminDashboardView" class="hidden">
         <div class="admin-tabs">
-          <button class="adm-tab active" data-target="tabAddTrack">+ CARREGAR FAIXA / FREE DL</button>
-          <button class="adm-tab" data-target="tabAddSC">+ LINK SOUNDCLOUD</button>
-          <button class="adm-tab" data-target="tabAddShow">+ NOVA DATA / SHOW</button>
+          <button class="adm-tab active" data-target="tabAddTrack">+ FAIXA / FREE DL</button>
+          <button class="adm-tab" data-target="tabAddSC">+ SOUNDCLOUD</button>
+          <button class="adm-tab" data-target="tabAddYT">+ YOUTUBE</button>
+          <button class="adm-tab" data-target="tabAddShow">+ AGENDA 2027</button>
         </div>
 
         <!-- Tab 1: Upload Música/Beat/Bootleg -->
@@ -332,21 +364,30 @@
           <button type="submit" class="btn btn-primary btn-full">ADICIONAR À ABA SOUNDCLOUD</button>
         </form>
 
-        <!-- Tab 3: Adicionar Data de Show -->
+        <!-- Tab 3: Adicionar Vídeo YouTube -->
+        <form id="addYtForm" class="adm-panel hidden">
+          <label>Título do Vídeo / Live Set no YouTube</label>
+          <input type="text" id="ytTitle" placeholder="Ex: DJ Nanndox — Live Afro & Tech House Session" required />
+          <label>Link do Vídeo no YouTube</label>
+          <input type="url" id="ytLink" placeholder="https://www.youtube.com/watch?v=..." required />
+          <button type="submit" class="btn btn-primary btn-full">ADICIONAR À ABA YOUTUBE</button>
+        </form>
+
+        <!-- Tab 4: Adicionar Nova Entrada na Agenda 2027 -->
         <form id="addShowForm" class="adm-panel hidden">
-          <label>Data do Evento</label>
-          <input type="date" id="showDate" required />
-          <label>Clube / Evento</label>
-          <input type="text" id="showVenue" placeholder="Ex: TOPFLOOR Club" required />
-          <label>Cidade / País</label>
-          <input type="text" id="showCity" placeholder="Ex: Lisboa, Portugal" required />
+          <label>Período / Data (2027)</label>
+          <input type="text" id="showDate" placeholder="Ex: VERÃO 2027 ou 15/05/2027" required />
+          <label>Clube / Tipo de Evento</label>
+          <input type="text" id="showVenue" placeholder="Ex: Clubes & Festivais 2027" required />
+          <label>Região / País</label>
+          <input type="text" id="showCity" placeholder="Ex: Portugal & Europa" required />
           <label>Estado</label>
           <select id="showStatus">
+            <option value="DISPONÍVEL PARA BOOKING">DISPONÍVEL PARA BOOKING</option>
             <option value="CONFIRMADO">CONFIRMADO</option>
-            <option value="ÚLTIMOS BILHETES">ÚLTIMOS BILHETES</option>
-            <option value="ENTRADA LIVRE">ENTRADA LIVRE</option>
+            <option value="ÚLTIMAS DATAS">ÚLTIMAS DATAS</option>
           </select>
-          <button type="submit" class="btn btn-primary btn-full">PUBLICAR DATA NA AGENDA</button>
+          <button type="submit" class="btn btn-primary btn-full">PUBLICAR NA AGENDA 2027</button>
         </form>
 
         <div class="admin-footer-actions">
@@ -357,7 +398,7 @@
     </div>
   </div>
 
-  <!-- Supabase CDN (Opcional: ativar quando criares o projeto gratuito no Supabase) -->
+  <!-- Supabase CDN -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="app.js"></script>
 </body>
