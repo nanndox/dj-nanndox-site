@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Flyer Press Kit 2027 — DJ NANNDOX</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #04060a;
+      color: #f8fafc;
+      margin: 0;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+    }
+    h1, h2, h3, .font-display {
+      font-family: 'Space Grotesk', sans-serif;
+    }
+
+    /* Proporção Oficial Instagram Portrait 4:5 (1080 x 1350 px) */
+    #flyer-canvas {
+      width: 1080px;
+      height: 1350px;
+      min-width: 1080px;
+      max-width: 1080px;
+      min-height: 1350px;
+      max-height: 1350px;
+      background:
+        radial-gradient(circle at 12% 8%, rgba(6, 182, 212, 0.22) 0%, transparent 42%),
+        radial-gradient(circle at 90% 42%, rgba(245, 158, 11, 0.15) 0%, transparent 45%),
+        radial-gradient(circle at 25% 92%, rgba(99, 102, 241, 0.18) 0%, transparent 45%),
+        #090d16;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card-surface {
+      background: rgba(15, 22, 36, 0.88);
+      border: 1px solid rgba(255, 255, 255, 0.09);
+    }
+
+    .glow-cyan {
+      box-shadow: 0 0 35px rgba(6, 182, 212, 0.18);
+    }
+
+    /* Sistema de Etiquetas e Preços com Centralização Vertical Absoluta no html2canvas */
+    .badge-pill {
+      display: inline-block;
+      padding: 6px 14px;
+      line-height: 1.05;
+      vertical-align: middle;
+      white-space: nowrap;
+    }
+    .badge-tag {
+      display: inline-block;
+      padding: 5px 11px;
+      line-height: 1.05;
+      vertical-align: middle;
+      white-space: nowrap;
+    }
+    .badge-inline {
+      display: inline-block;
+      padding: 4px 9px;
+      line-height: 1;
+      vertical-align: baseline;
+      white-space: nowrap;
+    }
+    .status-dot {
+      display: inline-block;
+      width: 7px;
+      height: 7px;
+      border-radius: 9999px;
+      vertical-align: middle;
+      margin-right: 7px;
+      margin-top: -2px;
+    }
+
+    /* Foto via background-image para manter proporção exata */
+    .artist-photo-bg {
+      background-image: url('./foto-nanndox.jpeg');
+      background-size: cover;
+      background-position: center 15%;
+      background-repeat: no-repeat;
+    }
+
+    @media print {
+      .no-print { display: none !important; }
+      body { padding: 0; background: #090d16; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- BARRA DE EXPORTAÇÃO (Não aparece na imagem baixada) -->
+  <div class="no-print w-[1080px] mb-5 flex justify-between items-center bg-slate-900/95 border border-white/10 px-6 py-3.5 rounded-2xl shadow-xl">
+    <div class="text-sm text-slate-300">
+      <strong class="text-white">Flyer Digital Premium (1080 × 1350 px • 4:5)</strong> — Pronto para Instagram Direct & WhatsApp
+    </div>
+    <button id="btn-download" onclick="baixarFlyerJPEG()" class="cursor-pointer inline-flex items-center gap-2.5 px-5 py-2.5 rounded-xl bg-gradient-to-r from-cyan-400 to-teal-400 hover:from-cyan-300 hover:to-teal-300 text-slate-950 font-extrabold text-sm shadow-lg transition">
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      <span id="btn-text">Baixar Flyer JPEG (Alta Qualidade)</span>
+    </button>
+  </div>
+
+  <!-- ÁREA DO FLYER (1080 x 1350 px) -->
+  <div id="flyer-canvas" class="rounded-3xl border border-white/10 shadow-2xl px-11 py-9 flex flex-col justify-between">
+    
+    <!-- 1. HEADER -->
+    <header class="flex justify-between items-center pb-5 border-b border-white/10">
+      <div class="flex-shrink-0 bg-[#12151c] p-2.5 rounded-2xl border border-white/10 shadow-lg">
+        <img src="./logo-nanndox.jpeg" alt="DEEJAY NANNDOX" class="h-24 w-auto block rounded-xl" />
+      </div>
+
+      <div class="text-right">
+        <div class="mb-3">
+          <span class="badge-pill rounded-full text-[11px] font-bold tracking-[0.2em] uppercase bg-cyan-500/15 text-cyan-300 border border-cyan-400/40">
+            <span class="status-dot bg-emerald-400"></span>Agenda 2027 Aberta • Press Kit & Cachets
+          </span>
+        </div>
+        <h1 class="text-[48px] font-bold tracking-tight text-white leading-none">
+          DJ NANNDOX
+        </h1>
+        <div class="mt-3.5 space-x-1.5 text-[11px] font-bold tracking-wider uppercase">
+          <span class="badge-tag rounded-md bg-white/5 text-cyan-300 border border-white/10">Tech House</span>
+          <span class="badge-tag rounded-md bg-white/5 text-cyan-300 border border-white/10">Afro House</span>
+          <span class="badge-tag rounded-md bg-white/5 text-cyan-300 border border-white/10">Afro-Latin</span>
+          <span class="badge-tag rounded-md bg-white/5 text-cyan-300 border border-white/10">EDM</span>
+          <span class="badge-tag rounded-md bg-amber-500/20 text-amber-300 border border-amber-400/40">Open Format</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- 2. BIOGRAFIA & CABINES -->
+    <section class="grid grid-cols-12 gap-7 items-stretch">
+      
+      <!-- Foto com proporção protegida -->
+      <div class="col-span-4 flex">
+        <div class="relative w-full min-h-[385px] rounded-2xl overflow-hidden border border-cyan-400/35 glow-cyan bg-slate-900 artist-photo-bg">
+          <div class="absolute inset-0 bg-gradient-to-t from-[#090d16] via-transparent to-transparent opacity-60"></div>
+          <div class="absolute bottom-3.5 right-3.5">
+            <span class="badge-tag bg-black/85 rounded-xl border border-white/15 text-xs font-bold tracking-widest uppercase text-cyan-400">
+              PT • CH
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Texto Bio + Residências -->
+      <div class="col-span-8 flex flex-col justify-between space-y-3.5">
+        <div>
+          <div class="mb-2">
+            <span class="status-dot bg-cyan-400"></span>
+            <span class="font-display text-xs font-bold uppercase tracking-[0.25em] text-cyan-400 align-middle">Biografia do Artista</span>
+          </div>
+          <p class="text-slate-200 text-[14.5px] leading-relaxed">
+            <strong class="text-white">DJ NANNDOX</strong> é um DJ e produtor Brasileiro/Português que iniciou a sua carreira profissional em <strong class="text-cyan-300">2009</strong>, construindo o seu percurso em casas míticas da noite lisboeta, incluindo passagens pelos antigos <strong class="text-white">Fiéis ao Bar do Rio</strong>, <strong class="text-white">Loft</strong> e <strong class="text-white">Music Box</strong>, entre outras referências da zona de Lisboa.
+          </p>
+          <p class="text-slate-300 text-[14px] leading-relaxed mt-1.5">
+            Reconhecido pela energia contagiante de pista e pela fusão envolvente entre <strong class="text-white">Tech House, Afro House, Afro-Latin, EDM e Open Format</strong>, entrega sets dinâmicos e produções exclusivas adaptadas ao ADN de clubes, sunsets e eventos privados.
+          </p>
+        </div>
+
+        <div class="card-surface rounded-2xl p-4 border-l-4 border-l-amber-400 space-y-2">
+          <h3 class="text-xs font-bold uppercase tracking-[0.18em] text-amber-400 leading-none mb-1.5">
+            Cabines, Residências & Eventos
+          </h3>
+          
+          <div class="text-[12.5px] text-slate-200 leading-relaxed space-y-2">
+            <p>
+              <span class="badge-inline rounded bg-amber-400/15 text-amber-300 font-bold text-[10px] uppercase mr-1.5">Portugal</span>
+              <strong class="text-white">Havana Docas Lisboa</strong> <span class="text-cyan-400 font-semibold">(Residente)</span> • 
+              <strong class="text-white">Hawaii Docas Lisboa</strong> <span class="text-cyan-400 font-semibold">(Residente)</span> • 
+              <strong class="text-white">Álcool Puro</strong> <span class="text-cyan-400 font-semibold">(Residente)</span> e atuações em espaços de referência como <strong class="text-white">Urban Beach, Hype e Loucura Bar</strong>, entre muitas outras casas em Lisboa e arredores.
+            </p>
+            <p>
+              <span class="badge-inline rounded bg-cyan-400/15 text-cyan-300 font-bold text-[10px] uppercase mr-1.5">Suíça (2023–2024)</span>
+              <strong class="text-white">Midnight Club</strong> <span class="text-cyan-400 font-semibold">(Residente)</span> e passagens em casas como <strong class="text-white">Jukebox Sion</strong>, <strong class="text-white">Millésime Club</strong> (Montreux), <strong class="text-white">Crazy Club</strong> (Fribourg), <strong class="text-white">Darling Club</strong> (Lausanne) e <strong class="text-white">Carnaval de Lausanne</strong>, entre muitas outras.
+            </p>
+            <p class="pt-2 border-t border-white/10">
+              <span class="badge-inline rounded bg-emerald-400/15 text-emerald-300 font-bold text-[10px] uppercase mr-1.5">Casamentos & Eventos</span>
+              Vasta experiência na animação de casamentos, aniversários e batizados, com passagens entre <strong class="text-white">2016 e 2018</strong> pela equipa <strong class="text-white">Crazy Day</strong> e, em <strong class="text-white">2025</strong>, pela <strong class="text-white">A Elite Animação</strong>, somando <strong class="text-cyan-300">mais de 38 casamentos realizados</strong> ao longo do ano de 2025.
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- 3. FORMATOS & CACHETS 2027 -->
+    <section>
+      <div class="flex justify-between items-center mb-3">
+        <div>
+          <span class="text-cyan-400 font-display font-bold text-base mr-1.5">//</span>
+          <h2 class="inline text-base font-bold uppercase tracking-[0.22em] text-white">Formatos & Cachets 2027</h2>
+        </div>
+        <span class="badge-pill rounded-full text-[10.5px] font-bold uppercase tracking-wider bg-emerald-500/15 text-emerald-300 border border-emerald-500/30">
+          <span class="status-dot bg-emerald-400"></span>Calendário 2027 Aberto • Datas Disponíveis
+        </span>
+      </div>
+
+      <div class="grid grid-cols-2 gap-3.5">
+        
+        <div class="card-surface rounded-2xl p-4 flex flex-col justify-between">
+          <div class="flex justify-between items-center gap-2 mb-2">
+            <h3 class="text-[14.5px] font-bold uppercase tracking-wide text-white">Pack Club / Bar (2 Horas)</h3>
+            <span class="badge-pill rounded-full text-xs font-extrabold bg-cyan-400 text-slate-950">80€</span>
+          </div>
+          <p class="text-[12.5px] text-slate-300 leading-relaxed">
+            Set de 2 horas personalizado (<span class="text-cyan-300">Tech House / Afro House / Open Format</span>) + <strong class="text-white">Flyer promocional incluído</strong> para redes sociais.
+          </p>
+        </div>
+
+        <div class="card-surface rounded-2xl p-4 border border-cyan-400/40 glow-cyan flex flex-col justify-between">
+          <div class="flex justify-between items-center gap-2 mb-2">
+            <h3 class="text-[14.5px] font-bold uppercase tracking-wide text-white">Pack Noite Completa (4 Horas)</h3>
+            <span class="badge-pill rounded-full text-xs font-extrabold bg-cyan-400 text-slate-950">130€ – 150€</span>
+          </div>
+          <p class="text-[12.5px] text-slate-300 leading-relaxed">
+            Atuação de 4 horas para clubes, bares ou sunsets + <strong class="text-white">Flyer promocional personalizado incluído</strong>.
+          </p>
+        </div>
+
+        <div class="card-surface rounded-2xl p-4 flex flex-col justify-between">
+          <div class="flex justify-between items-center gap-2 mb-2">
+            <h3 class="text-[14.5px] font-bold uppercase tracking-wide text-white">Pack Evento 8H + Som & Luz</h3>
+            <span class="badge-pill rounded-full text-xs font-extrabold bg-amber-400 text-slate-950">DESDE 350€</span>
+          </div>
+          <p class="text-[12.5px] text-slate-300 leading-relaxed">
+            Até 8 horas de música + aluguer de sistema de som profissional e iluminação cénica ajustados ao espaço do evento.
+          </p>
+        </div>
+
+        <div class="card-surface rounded-2xl p-4 flex flex-col justify-between">
+          <div class="flex justify-between items-center gap-2 mb-2">
+            <h3 class="text-[14.5px] font-bold uppercase tracking-wide text-white">Casamentos & Privados</h3>
+            <span class="badge-pill rounded-full text-xs font-extrabold bg-amber-400 text-slate-950">SOB CONSULTA</span>
+          </div>
+          <p class="text-[12.5px] text-slate-300 leading-relaxed">
+            Acompanhamento musical completo para casamentos, batizados, aniversários e eventos corporativos à medida.
+          </p>
+        </div>
+
+      </div>
+
+      <!-- FAIXA DESLOCAÇÕES & AGENDA 2027 -->
+      <div class="mt-3 card-surface rounded-xl px-5 py-3 border border-cyan-400/25 flex justify-between items-center text-[12.5px]">
+        <div class="text-slate-200">
+          <span class="status-dot bg-amber-400"></span>
+          <span>
+            <strong class="text-white">Deslocações:</strong> <span class="text-cyan-300 font-semibold">Sem taxa até 80 km fora de Lisboa</span> (valor variável consoante a localidade para o restante país).
+          </span>
+        </div>
+        <span class="text-[11px] font-bold text-amber-300 uppercase tracking-wider whitespace-nowrap">
+          Booking 2027 • Datas em Aberto
+        </span>
+      </div>
+    </section>
+
+    <!-- 4. CONTACTOS, REDES SOCIAIS & RODAPÉ -->
+    <div>
+      <footer class="card-surface rounded-2xl px-6 py-4 border border-white/10">
+        <div class="grid grid-cols-2 gap-6 items-center">
+          
+          <!-- Esquerda -->
+          <div class="space-y-2.5 text-[13px]">
+            <div class="flex items-center gap-3 text-slate-200">
+              <span class="w-7 h-7 rounded-lg bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center text-emerald-400 flex-shrink-0">
+                <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824z"/></svg>
+              </span>
+              <span><strong class="text-white">Bookings / WhatsApp:</strong> +351 964 505 531</span>
+            </div>
+
+            <div class="flex items-center gap-3 text-slate-200">
+              <span class="w-7 h-7 rounded-lg bg-cyan-500/15 border border-cyan-500/30 flex items-center justify-center text-cyan-400 flex-shrink-0">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+              </span>
+              <span><strong class="text-white">E-mail:</strong> ndx.devsecops@gmail.com</span>
+            </div>
+
+            <div class="flex items-center gap-3 text-slate-200">
+              <span class="w-7 h-7 rounded-lg bg-amber-500/15 border border-amber-500/30 flex items-center justify-center text-amber-400 flex-shrink-0">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+              </span>
+              <span><strong class="text-white">Site Oficial:</strong> <span class="text-amber-300 font-semibold">www.djnanndox.fun</span></span>
+            </div>
+          </div>
+
+          <!-- Direita -->
+          <div class="flex flex-col items-end space-y-2.5 text-[13px]">
+            <span class="text-[11px] font-bold uppercase tracking-[0.2em] text-cyan-400">Ouve & Segue Oficialmente</span>
+            
+            <div class="flex items-center gap-2.5 text-slate-200">
+              <span><strong class="text-white">SoundCloud:</strong> soundcloud.com/nanndox</span>
+              <span class="w-7 h-7 rounded-lg bg-orange-500/15 border border-orange-500/30 flex items-center justify-center text-orange-400 flex-shrink-0">
+                <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M11.56 8.87V17h8.76c1.85 0 3.35-1.5 3.35-3.35 0-1.72-1.3-3.13-2.97-3.32-.4-2.31-2.41-4.08-4.84-4.08-1.91 0-3.57 1.09-4.3 2.62zm-2.18.92v7.21h1.1V9.79h-1.1zm-2.19 1.6v5.61h1.1v-5.61h-1.1zm-2.18 1.24v4.37h1.1v-4.37h-1.1zm-2.19 1.15v3.22h1.1v-3.22h-1.1zm-2.18 1.07V17h1.1v-2.15H.64z"/></svg>
+              </span>
+            </div>
+
+            <div class="flex items-center gap-2.5 text-slate-200">
+              <span><strong class="text-white">YouTube:</strong> youtube.com/@djnanndox</span>
+              <span class="w-7 h-7 rounded-lg bg-red-500/15 border border-red-500/30 flex items-center justify-center text-red-500 flex-shrink-0">
+                <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+              </span>
+            </div>
+
+            <div class="flex items-center gap-2.5 text-slate-200">
+              <span><strong class="text-white">Instagram:</strong> @djnanndox</span>
+              <span class="w-7 h-7 rounded-lg bg-pink-500/15 border border-pink-500/30 flex items-center justify-center text-pink-400 flex-shrink-0">
+                <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+              </span>
+            </div>
+          </div>
+
+        </div>
+      </footer>
+
+      <!-- NOTA DISCRETA & COPYRIGHT -->
+      <div class="text-center mt-2.5 space-y-0.5">
+        <p class="text-[10.5px] text-slate-400/80 italic">
+          * Nota: Os valores indicativos apresentados são válidos exclusivamente para eventos realizados em Portugal.
+        </p>
+        <p class="text-[11px] text-slate-500">
+          &copy; 2026–2027 DJ NANNDOX. Todos os direitos reservados. Design & Press Kit por <span class="text-cyan-400 font-semibold">VECTRA8 Digital Agency Online</span>.
+        </p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- SCRIPT DE EXPORTAÇÃO JPEG -->
+  <script>
+    async function baixarFlyerJPEG() {
+      const btnText = document.getElementById('btn-text');
+      const flyer = document.getElementById('flyer-canvas');
+      btnText.innerText = 'A exportar Flyer HD...';
+
+      window.scrollTo(0, 0);
+      await document.fonts.ready;
+
+      html2canvas(flyer, {
+        scale: 2,
+        useCORS: true,
+        backgroundColor: '#090d16',
+        width: 1080,
+        height: 1350,
+        scrollX: 0,
+        scrollY: 0
+      }).then(canvas => {
+        const link = document.createElement('a');
+        link.download = 'Flyer-PressKit-DJ-NANNDOX-2027.jpg';
+        link.href = canvas.toDataURL('image/jpeg', 0.96);
+        link.click();
+        btnText.innerText = 'Baixar Flyer JPEG (Alta Qualidade)';
+      }).catch(err => {
+        console.error(err);
+        btnText.innerText = 'Baixar Flyer JPEG (Alta Qualidade)';
+      });
+    }
+  </script>
+
+</body>
+</html>
